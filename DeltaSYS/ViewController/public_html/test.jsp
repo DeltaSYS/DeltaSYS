@@ -9,18 +9,16 @@
     <script src="js/jquery/jquery.json-2.2.js" type="text/javascript"></script>
     <script language="javascript" src="js/funciones.js"></script>
     <script language="javascript" src="js/deltasys.js"></script>
+    <script language="javascript" src="test.js"></script>
     
     <title>DetaSYS - Test Center</title>
   </head>
   <body onkeypress="pressKey()" onload="initForms()">
     
-    <table cellspacing="0" cellpadding="0" class="fullTable" width="100%">
-      <tr>
-        <td height="50px"><jsp:include page="/header.jsp" /></td>
-      </tr>
+    <table cellspacing="0" cellpadding="0" width="100%">
       <tr>
         <td>
-          <form name="frmData" method="post" action="principal.jsp">
+          <form name="frmData" method="post">
           <table align="center">
             <tr>
               <td>
@@ -55,8 +53,8 @@
               </td>
             </tr>
           </table>
-                <input name="tipo" type="hidden" size="20" maxlength="10"/>
-                <input name="nombre" type="hidden" size="20" maxlength="10"/>
+                <input name="perfil" type="text" size="20" maxlength="10"/>
+                <input name="nombre" type="text" size="20" maxlength="10"/>
           </form>
         
         </td>

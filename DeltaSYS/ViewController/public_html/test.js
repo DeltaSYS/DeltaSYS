@@ -1,178 +1,43 @@
 
 var Controller = "DsUsuariosController";
 
-$("select, input:text, input:button").uniform();
-
-initForms();
-var pkCat = null;
-
-function cancelar()
-{
-  reloadPantalla();
-  $.uniform.update("select");
-}
-
-function clickTabla(pk)
-{
-  pkCat = pk;
+function autenticar(form)
+{ 
+  //ajax
+  var objParam = new Object();
   
-  GI("cidespecie").value = pkCat.Idespecie;
-  GI("cnombre").value = pkCat.Nombre;
-  
-  SA(GI("btnAceptar"),"onclick","");
-  
-  lockForm("frmMantenimiento");
-  $.uniform.update("input:button");
-}
-// Acciones Catalogo--------------------
+  objParam.user = form.user.value;
+  objParam.password = form.password.value.replace("'","''");
+  objParam.action="autentify";
+          
+  $.ajax({
+      type : "POST",
+      url : Controller, // Llamamos al servlet UsuarioController                 
+      data: $.toJSON(objParam),// PARSEAMOS EL OBJETO jsoN A STRING Y LO MANDAMOS
+      success : autenticarRes,
+      error : function (XMLHttpRequest, textStatus, errorThrown) {
+          alert(errorThrown)
+      }
+  });
+} 
 
-function nuevo()
+function autenticarRes(obj,result)
 {
-    $("#frmMantenimiento").validate({
-        submitHandler: function(form) {
-            nuevoValidado();
-        }
-    }); 
-  $("#frmMantenimiento").submit();
-}
-
-function nuevoValidado() 
-{      
-    var objParam={
-        action:"insert",
-        parameters:
-        {
-            Form:$('#frmMantenimiento').serializeObject()
-        }
-    }
-     $.ajax({
-            type : "POST",
-            url : Controller, // Llamamos al servlet CotizadorController                 
-            data: $.toJSON(objParam),// PARSEAMOS EL OBJETO jsoN A STRING Y LO MANDAMOS
-            success :nuevoRes,
-            error : function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(errorThrown)
-            }
-        }); 
-}
-
-function nuevoRes(obj,result)
-{
-  if(isError(obj)){ return;}
-  
-  alert("¡Se ha dado de alta un nuevo registro!");
-  reloadPantalla();
-}
-
-function modificar()
-{
-    $("#frmMantenimiento").validate({
-        submitHandler: function(form) {
-            modificarValidado();
-        }
-    }); 
-  $("#frmMantenimiento").submit();
-}
-
-function modificarValidado() 
-{      
-    var objParam={
-        action:"update",
-        parameters:
-        {
-            Form:$('#frmMantenimiento').serializeObject()
-        }
-    }
-     $.ajax({
-            type : "POST",
-            url : Controller, // Llamamos al servlet CotizadorController                 
-            data: $.toJSON(objParam),// PARSEAMOS EL OBJETO jsoN A STRING Y LO MANDAMOS
-            success :modificarRes,
-            error : function (XMLHttpRequest, textStatus, errorThrown) {
-                alert(errorThrown)
-            }
-        }); 
-}
-
-function modificarRes(obj,result)
-{
-  if(isError(obj)){ return;}
-  
-  alert("¡Se ha modificado el registro!");
-  reloadPantalla();
-}
-
-function borrar()
-{
-   var objParam={
-        action:"delete",
-        parameters:
-        {
-            Form:$('#frmMantenimiento').serializeObject()
-        }
-    }
-     $.ajax({
-            type : "POST",
-            url : Controller, // Llamamos al servlet CotizadorController                 
-            data: $.toJSON(objParam),// PARSEAMOS EL OBJETO jsoN A STRING Y LO MANDAMOS
-            success :borrarRes,
-            error : function (XMLHttpRequest, textStatus, errorThrown) {
-                alert("¡No se puede eliminar registro por integridad de datos!")
-            }
-        }); 
-}
-
-function borrarRes(obj,result)
-{
-  if(isError(obj)){ return;}
-  
-  alert("¡Se ha eliminado el registro!");
-  reloadPantalla();; // limpia formulario
-}
-
-// Acciones Catalogo--------------------
-
-// Botones------------------------------
-
-function borrarbtn()
-{
-  if(pkCat==null)
+  if(obj!="")
   {
-    alert("¡Seleccione registro!");
-    return;
-  }  
-  
-   if(!confirm("¿Está seguro que desea borrar este registro?"))
-    return;
+    alert("Bienvenid@ "+obj[0].user);
     
-    borrar();
-}
-
-function modificarbtn()
-{
-  if(pkCat==null)
+    document.frmData.nombre.value = obj[0].oid;
+    document.frmData.perfil.value = obj[0].id_perfil;
+  }
+  else
   {
-    alert("¡Seleccione registro!");
-    return;
-  }  
-
-  unlockElements("btnAceptar,btnCancelar");
-  unlockForm("frmMantenimiento");
-  SA(GI("btnAceptar"),"onclick","modificar()");
-  
-  $.uniform.update("input:button");
+    alert("Datos de usuario incorrectos")
+  }
 }
 
-function nuevobtn()
+function pressKey()
 {
-  RF(GI("frmMantenimiento"));
-  unlockElements("btnAceptar,btnCancelar");
-  
-  SA(GI("btnAceptar"),"onclick","nuevo()");
-  unlockForm("frmMantenimiento");
-  
-  $.uniform.update("input:button");
-  
-  RA(GI("cidespecie"),"skip");
-  loadElement(GI("cidespecie"));
+  if(event.keyCode==13)// press ENTER   
+    autenticar(document.frmData);
 }

@@ -1,5 +1,12 @@
 // funciones básicas 
 
+ $(document).ready(function () {
+    $("select, input:text, input:button, input:checkbox, input:radio, input:password, input:submit").uniform();
+
+});
+
+
+
 function isArray(a) { return isObject(a) && a.constructor == Array }                              // Valida si el objeto es una instancia de Array
 function isBoolean(a) { return typeof a == 'boolean' }                                            // Valida si el objeto es de tipo boolean
 function isNull(a) { return typeof a == 'object' && !a }                                          // Valida si el objeto es nulo
@@ -180,51 +187,6 @@ function unlockElement(e)
   }
 }
 
-function pressKey()
-{
-  if(event.keyCode==13)// press ENTER   
-    autenticar(document.frmData);
-}
-
-function autenticar(form)
-{ 
-  // validar 
-  
-  //ajax
-  var objParam = new Object();
-  
-  objParam.name="findUser";
-  objParam.user = form.user.value;
-  objParam.password = form.password.value.replace("'","''");
-  objParam.action="autentify";
-          
-  $.ajax({
-      type : "POST",
-      url : "UsuarioController", // Llamamos al servlet UsuarioController                 
-      data: $.toJSON(objParam),// PARSEAMOS EL OBJETO jsoN A STRING Y LO MANDAMOS
-      success : autenticarRes,
-      error : function (XMLHttpRequest, textStatus, errorThrown) {
-          alert(errorThrown)
-      }
-  });
-} 
-
-function autenticarRes(obj,result)
-{
-  if(obj!="")
-  {
-    alert("Bienvenid@ "+obj[0].Nombre);
-    
-    document.frmData.nombre.value= obj[0].Nombre;
-    document.frmData.tipo.value= obj[0].Idtipo;
-    document.frmData.submit();
-  }
-  else
-  {
-    alert("Datos de usuario incorrectos")
-  }
-  
-}
  
 function loadElement(e) 
 {
@@ -318,8 +280,6 @@ function loadElement(e)
 }
 
 
-
-
 function loadInputElement(input, arreglo) {
   var value = GA(input, "theValue");
   try {
@@ -383,13 +343,6 @@ function loadCombo(combo, arreglo, llave, valor) {
   }
   
 }
-
-
- $(document).ready(function () {
-    $("select, input:text, input:button, input:checkbox, input:radio, input:password, input:submit").uniform();
-
-});
-
 
  
 $.fn.serializeObject = function()
