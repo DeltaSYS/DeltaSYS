@@ -1,7 +1,7 @@
 // funciones básicas 
 
  $(document).ready(function () {
-    $("select, input:text, input:button, input:checkbox, input:radio, input:password, input:submit").uniform();
+    //$("select, input:text, input:button, input:checkbox, input:radio, input:password, input:submit").uniform();
 
 });
 

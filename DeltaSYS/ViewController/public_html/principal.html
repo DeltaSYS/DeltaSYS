@@ -3,6 +3,15 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf8"></meta>
     <link rel="stylesheet" type="text/css" href="resources/css/style1.css">
+    
+    <script src="js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="js/validation/lib/jquery.metadata.js" type="text/javascript"></script>
+    <script src="js/uniform/jquery.uniform.js" type="text/javascript"></script>
+    <script src="js/jquery/jquery.json-2.2.js" type="text/javascript"></script>
+    <script language="javascript" src="js/funciones.js"></script>
+    <script language="javascript" src="js/deltasys.js"></script>
+    <script language="javascript" src="principal.js"></script>
+    
     <title>principal</title>
   </head>
   <body>
@@ -16,21 +25,21 @@
           <h3>Consulta Ciudadana</h3>
         </div><!--end query-->
         <div id="login">
-          <form name="ingresarSistema" method="post">
+          <form name="frmData" method="post">
             <table>
               <tr>
               <th  colspan="2">Ingresar al sistema<th>
               </tr>
               <tr>
                 <td>Usuario<td>
-                <td><input type="text" id="user" name="user" /><td>
+                <td><input type="text" id="user" name="oid" onkeypress="pressKey()"/><td>
               </tr>
               <tr>
                 <td>Contrase&ntilde;a<td>
-                <td><input type="password" id="password" name="password" /><td>
+                <td><input type="password" id="password" name="password" onkeypress="pressKey()"/><td>
               </tr>
               <tr>
-                <td align="center" ><input type="submit" value="Enviar" />
+                <td align="center" ><input type="button" value="Enviar" onclick="autenticar(frmData)"/>
                 <td>
               </tr>
             </table>
