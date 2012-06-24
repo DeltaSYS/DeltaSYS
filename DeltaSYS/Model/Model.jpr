@@ -213,6 +213,9 @@
             <hash n="Model">
                <value n="development-database" v="DeltaSYS"/>
             </hash>
+            <hash n="ModelFacade">
+               <value n="development-database" v="DeltaSYS"/>
+            </hash>
          </hash>
       </hash>
    </hash>

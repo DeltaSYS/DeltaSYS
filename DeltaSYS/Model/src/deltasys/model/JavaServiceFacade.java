@@ -204,6 +204,24 @@ public class JavaServiceFacade {
     public List<DsFotos> getDsFotosFindAll() {
         return entityManagerHelper.getEntityManager().createNamedQuery("DsFotos.findAll").getResultList();
     }
+    
+    public DsFolios persistDsFolios(DsFolios dsFolios) {
+        return (DsFolios)entityManagerHelper.persistEntity(dsFolios);
+    }
+
+    public DsFolios mergeDsFolios(DsIntervalo dsFolios) {
+        return (DsFolios)entityManagerHelper.mergeEntity(dsFolios);
+    }
+
+    public void removeDsFolios(DsFolios dsFolios) {
+        dsFolios = entityManagerHelper.getEntityManager().find(DsFolios.class, dsFolios.getId_folio());
+        entityManagerHelper.removeEntity(dsFolios);
+    }
+
+    /** <code>select o from DsIntervalo o</code> */
+    public List<DsFolios> getDsFoliosFindAll() {
+        return entityManagerHelper.getEntityManager().createNamedQuery("DsFolios.findAll").getResultList();
+    }
 
     public DsCancelaciones persistDsCancelaciones(DsCancelaciones dsCancelaciones) {
         return (DsCancelaciones)entityManagerHelper.persistEntity(dsCancelaciones);
