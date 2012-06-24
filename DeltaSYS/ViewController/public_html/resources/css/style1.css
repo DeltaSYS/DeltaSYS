@@ -69,7 +69,7 @@ margin:0px;
 width:420px;
 height: 450px;
 padding:5px;
-border:5px  black;
+border:5px;
 margin:0px;
 position: absolute;
 top:10px;
@@ -80,9 +80,36 @@ left:40px;
 width:420px;
 height: 450px;
 padding:5px;
-border:5px black;
+border:5px;
 margin:0px;
 position: absolute;
 top:200px;
 left:500px;
+}
+#consulta
+{
+width:100px;
+height: 450px;
+padding:5px;
+border:5px;
+margin:0px;
+position: absolute;
+top:10px;
+left:20px;
+}
+img.imagen
+{
+width:100px;
+height:170px;
+}
+#search
+{
+width:780px;
+height: 450px;
+padding:5px;
+border:5px;
+margin:0px;
+position: absolute;
+top:20px;
+left:150px;
 }
