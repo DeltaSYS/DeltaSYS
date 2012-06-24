@@ -23,20 +23,26 @@ function autenticar(form)
 
 function autenticarRes(obj,result)
 {
-  if(obj!="")
-  {
-    alert("Bienvenid@ "+obj[0].user);
+    if(obj!="")
+    {
+        var loggedon = obj[0].loggedon;
     
-    document.frmData.nombre.value = obj[0].oid;
-    document.frmData.id_perfil.value = obj[0].id_perfil;
-    document.frmData.perfil.value = obj[0].perfil;
-    document.frmData.loggedon.value = obj[0].loggedon;
-  }
-  else
-  {
-    document.frmData.loggedon.value = obj[0].loggedon;
-    alert("Datos de usuario incorrectos")
-  }
+        if(loggedon=="yes")
+        {
+        
+            alert("Bienvenid@ "+obj[0].user);
+            
+            document.frmData.nombre.value = obj[0].oid;
+            document.frmData.id_perfil.value = obj[0].id_perfil;
+            document.frmData.perfil.value = obj[0].perfil;
+            document.frmData.loggedon.value = obj[0].loggedon;
+            
+            return;
+        }
+    }
+  
+    document.frmData.loggedon.value = "no";
+    alert("Datos de usuario incorrectos");
 }
 
 function pressKey()

@@ -45,8 +45,14 @@ public class DsUsuariosController extends HttpServlet{
             JavaServiceFacade facade= new JavaServiceFacade();
             
             //Lee la cadena de datos        
-            while ((line = reader.readLine()) != null){
+            while ((line = reader.readLine()) != null)
+            {
               jb.append(line);
+            }
+            
+            if(jb.length()==0)
+            {
+                jb.append(request.getParameter("data"));
             }
                
           //Lee y recupera el objeto JSON       
