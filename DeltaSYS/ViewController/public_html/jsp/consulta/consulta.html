@@ -4,6 +4,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf8"></meta>
     <link rel="stylesheet" type="text/css" href="../../resources/css/style1.css">
     
+    <script src="../../js/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="../../js/validation/lib/jquery.metadata.js" type="text/javascript"></script>
+    <script src="../../js/uniform/jquery.uniform.js" type="text/javascript"></script>
+    <script src="../../js/jquery/jquery.json-2.2.js" type="text/javascript"></script>
+    <script language="javascript" src="../../js/funciones.js"></script>
+    <script language="javascript" src="../../js/deltasys.js"></script>
     <script language="javascript" src="consulta.js"></script>
         
     <title>Consulta Ciudadana</title>
@@ -26,8 +32,8 @@
                 <table>
                   <tr>
                     <th>Matricula/Folio</th>
-                    <td><input type="text" id="matricula" name="matricula" onkeypress=""/></td>
-                    <td align="center" ><input type="button" value="Consultar Infracci&oacute;n" onclick=""/></td>
+                    <td><input type="text" id="placa_infraccion" name="placa_infraccion" onkeypress=""/></td>
+                    <td align="center" ><input type="button" value="Consultar Infracci&oacute;n" onclick="consultar(frmMatricula)"/></td>
                   </tr>
                   <tr>
                     <td colspan="3" colrow="2">Detalle de Infracciones</td>
@@ -38,15 +44,8 @@
             <div id="folios">
                 <table cellspacing="0" cellpadding="10">
                     <tr>
-                        <td valign="top" align="left" width="100">
-                            <table>
-                                <tr>
-                                    <th>Folio(s)</th>
-                                </tr>
-                                <tr>
-                                    <td valor="1121324" onclick="detalle(this);">1121324</td>
-                                </tr>
-                            </table>
+                        <td valign="top" align="left" width="100" id="dvFolios">
+                            &nbsp;
                         </td>
                         <td>
                             <table>
