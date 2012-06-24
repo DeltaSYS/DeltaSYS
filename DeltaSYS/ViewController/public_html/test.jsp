@@ -24,16 +24,13 @@
               <td>
                 &nbsp;
               </td>
-              <td align="center" class="titulo">
-                    Inicio de Sesión
-              </td>
             </tr>
             <tr>
               <td class="subtitulo" align="left">
                 Usuario
               </td>
               <td align="right">
-                <input name="user" type="text" size="20" maxlength="10" value="" tipo="alfanumerico"/>
+                <input name="oid" type="text" size="20" maxlength="10" value="" tipo="alfanumerico"/>
               </td>
             </tr>
             <tr>
@@ -53,14 +50,13 @@
               </td>
             </tr>
           </table>
-                <input name="perfil" type="text" size="20" maxlength="10"/>
+                <input name="id_perfil" type="text" size="10" maxlength="10"/>
+                <input name="perfil" type="text" size="10" maxlength="10"/>
                 <input name="nombre" type="text" size="20" maxlength="10"/>
+                <input name="loggedon" type="text" size="20" maxlength="10"/>
           </form>
         
         </td>
-      </tr>
-      <tr>
-        <td height="20px"><jsp:include page="/footer.jsp" /></td>
       </tr>
     </table>
     

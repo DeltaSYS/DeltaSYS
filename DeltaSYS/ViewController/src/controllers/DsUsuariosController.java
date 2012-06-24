@@ -53,8 +53,7 @@ public class DsUsuariosController extends HttpServlet{
             
             String input=jb.toString();
             JSONObject jsonObject = JSONObject.fromObject(input);//Transformamos la cadena de datos a un objeto JSON
-          
-          
+            
             String action = jsonObject.getString("action");
             JSONObject jsonParameters = jsonObject.getJSONObject("parameters");      
               
@@ -139,7 +138,6 @@ public class DsUsuariosController extends HttpServlet{
             
             if(action.equals("autentify"))
             { 
-                String nameQuery = jsonObject.getString("name");
                 List<DsUsuarios> usuarios =null;
                 
                 String oid = jsonObject.getString("oid");
@@ -148,17 +146,18 @@ public class DsUsuariosController extends HttpServlet{
                 usuarios = facade.getDsUsuariosLogin(oid,password);
                 
                 JSONArray ja = new JSONArray();
+                JSONObject obj = new JSONObject();
                 
                 if(usuarios.size()>0) 
                 {
-                    JSONObject obj = new JSONObject();
-                    
                     try 
                     {
                         DsUsuarios usu= usuarios.get(0);
                         obj.put("oid", usu.getOid());
-                        obj.put("nombre",usu.getNombre() );
+                        obj.put("user",usu.getNombre() );
                         obj.put("id_perfil", usu.getDsPerfiles().getId_perfil());
+                        obj.put("perfil", usu.getDsPerfiles().getPerfil());
+                        obj.put("loggedon", "yes");
                       
                         HttpSession session =request.getSession();
                         session.setAttribute("oid",usu.getOid());
@@ -171,8 +170,14 @@ public class DsUsuariosController extends HttpServlet{
                         System.out.println("Error: "+e.toString());
                     }
                     
-                    ja.add(obj);  
-                }          
+                }    
+                else
+                {
+
+                    obj.put("loggedon", "no");
+                }
+                
+                ja.add(obj);  
                 
                 resultado = ja.toString();
                 System.out.println(resultado);

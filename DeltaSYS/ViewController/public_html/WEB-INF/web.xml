@@ -30,4 +30,8 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DsUsuariosController</servlet-name>
+    <url-pattern>/DsUsuariosController</url-pattern>
+  </servlet-mapping>
 </web-app>

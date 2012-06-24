@@ -6,7 +6,7 @@ function autenticar(form)
   //ajax
   var objParam = new Object();
   
-  objParam.user = form.user.value;
+  objParam.oid = form.oid.value;
   objParam.password = form.password.value.replace("'","''");
   objParam.action="autentify";
           
@@ -28,10 +28,13 @@ function autenticarRes(obj,result)
     alert("Bienvenid@ "+obj[0].user);
     
     document.frmData.nombre.value = obj[0].oid;
-    document.frmData.perfil.value = obj[0].id_perfil;
+    document.frmData.id_perfil.value = obj[0].id_perfil;
+    document.frmData.perfil.value = obj[0].perfil;
+    document.frmData.loggedon.value = obj[0].loggedon;
   }
   else
   {
+    document.frmData.loggedon.value = obj[0].loggedon;
     alert("Datos de usuario incorrectos")
   }
 }
