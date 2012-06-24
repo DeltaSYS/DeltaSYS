@@ -30,6 +30,10 @@
     <servlet-name>DSInfraccionesController</servlet-name>
     <servlet-class>controllers.DSInfraccionesController</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DSFoliosController</servlet-name>
+    <servlet-class>controllers.DSFoliosController</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
@@ -41,5 +45,9 @@
   <servlet-mapping>
     <servlet-name>DSInfraccionesController</servlet-name>
     <url-pattern>/DSInfraccionesController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DSFoliosController</servlet-name>
+    <url-pattern>/DSFoliosController</url-pattern>
   </servlet-mapping>
 </web-app>

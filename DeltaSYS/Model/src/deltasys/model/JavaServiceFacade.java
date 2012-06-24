@@ -209,7 +209,7 @@ public class JavaServiceFacade {
         return (DsFolios)entityManagerHelper.persistEntity(dsFolios);
     }
 
-    public DsFolios mergeDsFolios(DsIntervalo dsFolios) {
+    public DsFolios mergeDsFolios(DsFolios dsFolios) {
         return (DsFolios)entityManagerHelper.mergeEntity(dsFolios);
     }
 

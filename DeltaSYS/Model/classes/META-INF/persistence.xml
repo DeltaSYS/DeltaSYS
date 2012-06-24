@@ -23,6 +23,7 @@
   </persistence-unit>
   <persistence-unit name="ModelFacade" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <jta-data-source>java:/app/jdbc/jdbc/DeltaSYSDS</jta-data-source>
     <class>deltasys.model.DsUsuarios</class>
     <class>deltasys.model.DsSectores</class>
     <class>deltasys.model.DsInfracciones</class>
@@ -34,12 +35,14 @@
     <class>deltasys.model.DsPerfilesReglamento</class>
     <class>deltasys.model.DsUbicaciones</class>
     <class>deltasys.model.DsReglamento</class>
+    <class>deltasys.model.DsFolios</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://192.168.1.65:3306/deltasys"/>
       <property name="javax.persistence.jdbc.user" value="root"/>
       <property name="javax.persistence.jdbc.password" value="5D528DDAE0BDD5A58A7CDAABD0898E94"/>
       <property name="eclipselink.logging.level" value="FINER"/>
+      <property name="javax.persistence.jtaDataSource" value="java:/app/jdbc/jdbc/DeltaSYSDS"/>
     </properties>
   </persistence-unit>
 </persistence>

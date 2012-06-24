@@ -27,10 +27,10 @@
             </tr>
             <tr>
               <td class="subtitulo" align="left">
-                Placa ó Folio de infracción
+                No. Folios
               </td>
               <td align="right">
-                <input name="placa_infraccion" type="text" size="20" maxlength="10" value="" tipo="alfanumerico"/>
+                <input name="num_folios" type="text" size="20" maxlength="10" value="" tipo="num"/>
               </td>
             </tr>
             <tr>

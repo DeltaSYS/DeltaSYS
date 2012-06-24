@@ -1,15 +1,13 @@
 
-var Controller = "DSInfraccionesController";
+var Controller = "DSFoliosController";
 
 function consultar(form)
 { 
   //ajax
   var objParam = new Object();
   
-  var num_placa = form.placa_infraccion.value;
-  
-  objParam.id_folio = isNaN(num_placa)?0:num_placa;
-  objParam.num_placa = form.placa_infraccion.value;
+  var num_folios = form.num_folios.value;
+  objParam.num_folios = isNaN(num_folios)?0:num_folios;
   
   objParam.action="select";
           
