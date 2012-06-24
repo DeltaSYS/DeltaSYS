@@ -112,6 +112,21 @@ public class JavaServiceFacade {
         return entityManagerHelper.getEntityManager().createNamedQuery("DsInfracciones.findAll").getResultList();
     }
 
+    public DsInfracciones getDsInfraccionesFindInfraccion(Long id_folio) 
+    {
+        Query objFind = entityManagerHelper.getEntityManager().createNamedQuery("DsInfracciones.findInfraccion");
+        objFind.setParameter("id_folio", id_folio);
+        return (DsInfracciones)objFind.getResultList().get(0);
+    }
+
+    public List<DsInfracciones> getDsInfraccionesFindInfracciones(Long id_folio, String num_placa) 
+    {
+        Query objFind = entityManagerHelper.getEntityManager().createNamedQuery("DsInfracciones.findInfracciones");
+        objFind.setParameter("id_folio", id_folio);
+        objFind.setParameter("num_placa", num_placa);
+        return objFind.getResultList();
+    }
+
     public DsIntervalo persistDsIntervalo(DsIntervalo dsIntervalo) {
         return (DsIntervalo)entityManagerHelper.persistEntity(dsIntervalo);
     }
@@ -260,6 +275,16 @@ public class JavaServiceFacade {
     /** <code>select o from DsReglamento o</code> */
     public List<DsReglamento> getDsReglamentoFindAll() {
         return entityManagerHelper.getEntityManager().createNamedQuery("DsReglamento.findAll").getResultList();
+    }
+
+    public DsReglamento getDsReglamentoFindReglamento(int id_articulo,String id_fraccion,String id_inciso) 
+    {
+        Query objFind = entityManagerHelper.getEntityManager().createNamedQuery("DsReglamento.findReglamento");
+        objFind.setParameter("id_articulo", id_articulo);
+        objFind.setParameter("id_fraccion", id_fraccion);
+        objFind.setParameter("id_inciso", id_inciso);
+        
+        return (DsReglamento)objFind.getResultList().get(0);
     }
 
     private class EntityManagerHelper {

@@ -14,7 +14,10 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@NamedQueries( { @NamedQuery(name = "DsReglamento.findAll", query = "select o from DsReglamento o") })
+@NamedQueries({ 
+    @NamedQuery(name = "DsReglamento.findAll", query = "select o from DsReglamento o"),
+    @NamedQuery(name = "DsReglamento.findReglamento", query = "select o from DsReglamento o where o.id_articulo = :id_articulo  and o.id_fraccion = :id_fraccion and o.id_inciso = :id_inciso")
+})
 @Table(name = "\"ds_reglamento\"")
 @IdClass(DsReglamentoPK.class)
 public class DsReglamento implements Serializable {

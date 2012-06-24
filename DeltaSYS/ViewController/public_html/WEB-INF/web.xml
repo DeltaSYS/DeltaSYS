@@ -26,6 +26,10 @@
     <servlet-name>DsUsuariosController</servlet-name>
     <servlet-class>controllers.DsUsuariosController</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DSInfraccionesController</servlet-name>
+    <servlet-class>controllers.DSInfraccionesController</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
@@ -33,5 +37,9 @@
   <servlet-mapping>
     <servlet-name>DsUsuariosController</servlet-name>
     <url-pattern>/DsUsuariosController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DSInfraccionesController</servlet-name>
+    <url-pattern>/DSInfraccionesController</url-pattern>
   </servlet-mapping>
 </web-app>

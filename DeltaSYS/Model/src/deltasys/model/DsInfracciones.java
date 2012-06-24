@@ -20,7 +20,12 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
-@NamedQueries( { @NamedQuery(name = "DsInfracciones.findAll", query = "select o from DsInfracciones o") })
+@NamedQueries
+    ({ 
+        @NamedQuery(name = "DsInfracciones.findAll", query = "select o from DsInfracciones o"),
+        @NamedQuery(name = "DsInfracciones.findInfraccion", query = "select o from DsInfracciones o where o.id_folio = :id_folio"),
+        @NamedQuery(name = "DsInfracciones.findInfracciones", query = "select o from DsInfracciones o where o.id_folio = :id_folio or o.num_placa = :num_placa order by o.id_folio")
+    })
 @Table(name = "\"ds_infracciones\"")
 public class DsInfracciones implements Serializable {
     @Column(name = "descripcion")
@@ -49,9 +54,9 @@ public class DsInfracciones implements Serializable {
     @OneToMany(mappedBy = "dsInfracciones")
     private List<DsFotos> dsFotosList;
     @ManyToOne
-    @JoinColumns( { @JoinColumn(name = "id_inciso", referencedColumnName = "id_articulo"),
+    @JoinColumns( { @JoinColumn(name = "id_articulo", referencedColumnName = "id_articulo"),
                     @JoinColumn(name = "id_fraccion", referencedColumnName = "id_fraccion"),
-                    @JoinColumn(name = "id_articulo", referencedColumnName = "id_inciso") })
+                    @JoinColumn(name = "id_inciso", referencedColumnName = "id_inciso") })
     private DsReglamento dsReglamento;
     @OneToMany(mappedBy = "dsInfracciones")
     private List<DsCancelaciones> dsCancelacionesList;

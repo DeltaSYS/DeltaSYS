@@ -13,7 +13,7 @@
     
     <title>DetaSYS - Test Center</title>
   </head>
-  <body onkeypress="pressKey()" onload="initForms()">
+  <body onload="initForms()">
     
     <table cellspacing="0" cellpadding="0" width="100%">
       <tr>
@@ -27,18 +27,10 @@
             </tr>
             <tr>
               <td class="subtitulo" align="left">
-                Usuario
+                Placa ó Folio de infracción
               </td>
               <td align="right">
-                <input name="oid" type="text" size="20" maxlength="10" value="" tipo="alfanumerico"/>
-              </td>
-            </tr>
-            <tr>
-              <td class="subtitulo" align="left">
-                Contraseña
-              </td>
-              <td align="right">
-                <input name="password" type="password" size="20" maxlength="10"  value="" tipo="alfanumerico"/>
+                <input name="placa_infraccion" type="text" size="20" maxlength="10" value="" tipo="alfanumerico"/>
               </td>
             </tr>
             <tr>
@@ -46,14 +38,10 @@
                 &nbsp;
               </td>
               <td align="right">
-                <input type="button" size="20px;" value="Entrar" maxlength="20" onclick="autenticar(frmData)"/>
+                <input type="button" size="20px;" value="Consultar" maxlength="20" onclick="consultar(frmData)"/>
               </td>
             </tr>
           </table>
-                <input name="id_perfil" type="text" size="10" maxlength="10"/>
-                <input name="perfil" type="text" size="10" maxlength="10"/>
-                <input name="nombre" type="text" size="20" maxlength="10"/>
-                <input name="loggedon" type="text" size="20" maxlength="10"/>
           </form>
         
         </td>
