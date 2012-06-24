@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<schema xmlns="http://xmlns.oracle.com/jdeveloper/1112/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">2a4adc91-3d32-48aa-9bb6-808cdd69d57a</identifier>
+  </ID>
+  <name>deltasys</name>
+</schema>

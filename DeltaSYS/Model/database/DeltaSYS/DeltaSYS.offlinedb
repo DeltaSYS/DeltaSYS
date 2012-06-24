@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProviderSettings xmlns="http://xmlns.oracle.com/ide/hash">
+   <hash n="dataTypeSettings">
+      <value n="sourceKey" v="oracle.javatools.db.mysql.MySQL5"/>
+   </hash>
+   <value n="id" v="eb71d288-0c83-463c-af29-e76e92d17b5e"/>
+   <value n="name" v="DeltaSYS"/>
+</ProviderSettings>

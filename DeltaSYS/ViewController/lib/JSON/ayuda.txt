@@ -1,0 +1,10 @@
+Referencias
+
+http://tecnologiasjava.blogspot.com/2010/02/json-javascript-object-notation.html
+http://json-lib.sourceforge.net/usage.html
+
+http://www.ibm.com/developerworks/web/library/wa-ajaxintro11.html
+
+
+
+
