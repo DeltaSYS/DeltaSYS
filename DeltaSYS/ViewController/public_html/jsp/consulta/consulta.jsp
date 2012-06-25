@@ -1,14 +1,15 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html">
 <%@ page contentType="text/html;charset=windows-1252"%>
 
       <div id="content">
-        <div id="consulta" class="consulta">       
-          <a href="">
+        <div id="top">
+            <input type="button" value="Regresar" ondblclick="" />
+        </div><!--end top-->
+        <div id="left" class="left">       
             <img class="imagen" src="resources/images/consulta.jpg"  alt="Consulta Ciudadana" />
-            </a>
           <h3>Consulta Ciudadana</h3>
         </div> <!--end consulta-->
-        <div id="search">
+        <div id="right">
             <div id="searchMatricula">
               <form name="frmMatricula" method="post">
                 <table>
@@ -17,14 +18,13 @@
                     <td><input type="text" id="placa_infraccion" name="placa_infraccion" onkeypress=""/></td>
                     <td align="center" ><input type="button" value="Consultar Infracci&oacute;n" onclick="consultar(frmMatricula)"/></td>
                   </tr>
-                  <tr>
-                    <td colspan="3" colrow="2">Detalle de Infracciones</td>
-                  </tr>
                 </table>
               </form>
-            </div>
+            </div><!--end searchMatricula-->
             <div id="folios">
                 <table cellspacing="0" cellpadding="10">
+                    <tr><td colspan="2"> &nbsp;</td></tr>
+                    <tr><td colspan="2">Detalle de Infracciones</td></tr>
                     <tr>
                         <td valign="top" align="left" width="100" id="dvFolios">
                             &nbsp;
@@ -68,6 +68,6 @@
                         </td>
                     </tr>
                 </table>
-            </div>
+            </div><!--end folios-->
           </div> <!--end search -->
-        </div> <!--end content-->
+      </div> <!--end content-->
