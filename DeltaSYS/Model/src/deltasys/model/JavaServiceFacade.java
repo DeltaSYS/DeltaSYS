@@ -258,6 +258,14 @@ public class JavaServiceFacade {
     public List<DsPerfilesReglamento> getDsPerfilesReglamentoFindAll() {
         return entityManagerHelper.getEntityManager().createNamedQuery("DsPerfilesReglamento.findAll").getResultList();
     }
+    
+    public List<DsPerfilesReglamento> getDsPerfilesReglamentoFindReglamentoPerfil(int id_perfil) 
+    {
+        Query objFind = entityManagerHelper.getEntityManager().createNamedQuery("DsPerfilesReglamento.findReglamentoPerfil");
+        objFind.setParameter("id_perfil", id_perfil);
+        return objFind.getResultList();
+    }
+    
 
     public DsUbicaciones persistDsUbicaciones(DsUbicaciones dsUbicaciones) {
         return (DsUbicaciones)entityManagerHelper.persistEntity(dsUbicaciones);

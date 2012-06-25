@@ -14,7 +14,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@NamedQueries( { @NamedQuery(name = "DsPerfilesReglamento.findAll", query = "select o from DsPerfilesReglamento o") })
+@NamedQueries({ 
+    @NamedQuery(name = "DsPerfilesReglamento.findAll", query = "select o from DsPerfilesReglamento o"),
+    @NamedQuery(name = "DsPerfilesReglamento.findReglamentoPerfil", query = "select o from DsPerfilesReglamento o where o.id_perfil = :id_perfil order by o.id_articulo,o.id_fraccion,o.id_inciso") 
+    })
 @Table(name = "\"ds_perfiles_reglamento\"")
 @IdClass(DsPerfilesReglamentoPK.class)
 public class DsPerfilesReglamento implements Serializable {
