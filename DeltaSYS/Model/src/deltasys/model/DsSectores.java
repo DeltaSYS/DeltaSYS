@@ -10,7 +10,7 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@NamedQueries( { @NamedQuery(name = "DsSectores.findAll", query = "select o from DsSectores o") })
+@NamedQueries( { @NamedQuery(name = "DsSectores.findAll", query = "select o from DsSectores o order by o.sector") })
 @Table(name = "\"ds_sectores\"")
 public class DsSectores implements Serializable {
     @Id

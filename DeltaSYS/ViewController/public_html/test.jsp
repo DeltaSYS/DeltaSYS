@@ -27,12 +27,36 @@
             </tr>
             <tr>
               <td class="subtitulo" align="left">
-                No. Folios
-              </td>
-              <td align="right">
-                <input name="num_folios" type="text" size="20" maxlength="10" value="" tipo="num"/>
+                Sectores
               </td>
             </tr>
+            <tr>
+              <td class="subtitulo" align="left">
+                <div id="dvSectores"></div>
+              </td>
+            </tr>
+            <tr>
+              <td class="subtitulo" align="left">
+                Oficiales de Transito
+              </td>
+            </tr>
+            <tr>
+              <td class="subtitulo" align="left">
+                <div id="dvOficiales"></div>
+              </td>
+            </tr>
+            <tr>
+              <td class="subtitulo" align="left">
+                Ubicación
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+                <div id="dvUbicaciones"></div>
+              </td>
+            </tr>
+            
+              
             <tr>
               <td>
                 &nbsp;

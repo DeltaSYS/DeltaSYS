@@ -16,7 +16,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@NamedQueries( { @NamedQuery(name = "DsUbicaciones.findAll", query = "select o from DsUbicaciones o") })
+@NamedQueries({ 
+        @NamedQuery(name = "DsUbicaciones.findAll", query = "select o from DsUbicaciones o"),
+        @NamedQuery(name = "DsUbicaciones.findUbicacionesOficial", query = "select o from DsUbicaciones o where o.oid = :oid and o.fecha_hora >= :fecha_inicio and o.fecha_hora <= :fecha_fin order by o.fecha_hora") 
+    })
 @Table(name = "\"ds_ubicaciones\"")
 public class DsUbicaciones implements Serializable {
     @Column(name = "fecha_hora")

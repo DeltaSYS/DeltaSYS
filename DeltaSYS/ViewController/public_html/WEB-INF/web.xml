@@ -42,6 +42,18 @@
     <servlet-name>DsIntervaloController</servlet-name>
     <servlet-class>controllers.DsIntervaloController</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DsSectoresController</servlet-name>
+    <servlet-class>controllers.DsSectoresController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DsSectorOficialController</servlet-name>
+    <servlet-class>controllers.DsSectorOficialController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DsUbicacionesController</servlet-name>
+    <servlet-class>controllers.DsUbicacionesController</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
@@ -65,5 +77,17 @@
   <servlet-mapping>
     <servlet-name>DsIntervaloController</servlet-name>
     <url-pattern>/DsIntervaloController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DsSectoresController</servlet-name>
+    <url-pattern>/DsSectoresController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DsSectorOficialController</servlet-name>
+    <url-pattern>/DsSectorOficialController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DsUbicacionesController</servlet-name>
+    <url-pattern>/DsUbicacionesController</url-pattern>
   </servlet-mapping>
 </web-app>

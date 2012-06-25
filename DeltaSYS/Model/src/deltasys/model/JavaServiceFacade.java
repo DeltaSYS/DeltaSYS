@@ -1,5 +1,7 @@
 package deltasys.model;
 
+import java.sql.Timestamp;
+
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -163,6 +165,14 @@ public class JavaServiceFacade {
         return entityManagerHelper.getEntityManager().createNamedQuery("DsSectorOficial.findAll").getResultList();
     }
 
+    public List<DsSectorOficial> getDsSectorOficialFindOficialesSector(int id_sector) 
+    {
+        Query objFind = entityManagerHelper.getEntityManager().createNamedQuery("DsSectorOficial.findOficialesSector");
+        objFind.setParameter("id_sector", id_sector);
+        return objFind.getResultList();
+    }
+
+    
     public DsPerfiles persistDsPerfiles(DsPerfiles dsPerfiles) {
         return (DsPerfiles)entityManagerHelper.persistEntity(dsPerfiles);
     }
@@ -276,13 +286,23 @@ public class JavaServiceFacade {
     }
 
     public void removeDsUbicaciones(DsUbicaciones dsUbicaciones) {
-        dsUbicaciones = entityManagerHelper.getEntityManager().find(DsUbicaciones.class, dsUbicaciones.getOid());
+        dsUbicaciones = entityManagerHelper.getEntityManager().find(DsUbicaciones.class, new DsUbicacionesPK( dsUbicaciones.getFecha_hora(), dsUbicaciones.getOid()));
         entityManagerHelper.removeEntity(dsUbicaciones);
     }
 
     /** <code>select o from DsUbicaciones o</code> */
     public List<DsUbicaciones> getDsUbicacionesFindAll() {
         return entityManagerHelper.getEntityManager().createNamedQuery("DsUbicaciones.findAll").getResultList();
+    }
+
+    public List<DsUbicaciones> getDsUbicacionesFindUbicacionesOficial(String oid,Timestamp fecha_inicio,Timestamp fecha_fin)
+    {
+        Query objFind = entityManagerHelper.getEntityManager().createNamedQuery("DsUbicaciones.findUbicacionesOficial");
+        objFind.setParameter("oid", oid);
+        objFind.setParameter("fecha_inicio", fecha_inicio);
+        objFind.setParameter("fecha_fin", fecha_fin);
+        
+        return objFind.getResultList();
     }
 
     public DsReglamento persistDsReglamento(DsReglamento dsReglamento) {

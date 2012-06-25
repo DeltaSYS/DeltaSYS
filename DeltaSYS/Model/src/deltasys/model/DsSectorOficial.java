@@ -13,7 +13,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@NamedQueries( { @NamedQuery(name = "DsSectorOficial.findAll", query = "select o from DsSectorOficial o") })
+@NamedQueries({ 
+        @NamedQuery(name = "DsSectorOficial.findAll", query = "select o from DsSectorOficial o"),
+        @NamedQuery(name = "DsSectorOficial.findOficialesSector", query = "select o from DsSectorOficial o where o.id_sector = :id_sector order by o.dsUsuarios.nombre")
+    })
 @Table(name = "\"ds_sector_oficial\"")
 @IdClass(DsSectorOficialPK.class)
 public class DsSectorOficial implements Serializable {

@@ -1,0 +1,346 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<table xmlns="http://xmlns.oracle.com/jdeveloper/1112/offlinedb">
+  <ID class="oracle.javatools.db.IdentifierBasedID">
+    <identifier class="java.lang.String">a79d92c2-473d-404c-a245-d27cf8c6f3cf</identifier>
+  </ID>
+  <name>ds_ubicaciones</name>
+  <columns>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">48348758-ecf4-4ea8-8863-de140828ff72</identifier>
+      </ID>
+      <name>oid</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">824d2cba-290a-41c7-b00d-262e6b2a62d9</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.mysql.MySQLDatabaseImpl</providerClass>
+          <typeName>VARCHAR</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>oid</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>ds_ubicaciones</name>
+                  <schemaName>deltasys</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>oid</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>ds_ubicaciones</name>
+              <schemaName>deltasys</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">bfe29f18-e58e-43d6-8a8e-dda489b02242</identifier>
+      </ID>
+      <name>latitud</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">521f7cc0-3885-462c-8f7b-65aea387e2df</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">6</value>
+          </entry>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.mysql.MySQLDatabaseImpl</providerClass>
+          <typeName>DECIMAL</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>latitud</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>ds_ubicaciones</name>
+                  <schemaName>deltasys</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>latitud</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>ds_ubicaciones</name>
+              <schemaName>deltasys</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">de4b637a-1913-4f8e-8086-0c5b5d129e87</identifier>
+      </ID>
+      <name>longitud</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">844b66ef-3f7a-474e-bfb7-b97a05b2c5d2</identifier>
+        </ID>
+        <attributeValues>
+          <entry>
+            <key>scale</key>
+            <value class="java.lang.Long">6</value>
+          </entry>
+          <entry>
+            <key>size</key>
+            <value class="java.lang.Long">10</value>
+          </entry>
+        </attributeValues>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.mysql.MySQLDatabaseImpl</providerClass>
+          <typeName>DECIMAL</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>longitud</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>ds_ubicaciones</name>
+                  <schemaName>deltasys</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>false</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>longitud</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>ds_ubicaciones</name>
+              <schemaName>deltasys</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+    <column>
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">c25de7a1-a09c-462d-bac1-0636ec239edd</identifier>
+      </ID>
+      <name>fecha_hora</name>
+      <dataTypeUsage>
+        <ID class="oracle.javatools.db.IdentifierBasedID">
+          <identifier class="java.lang.String">9a2a7aba-0f53-4302-a0f7-fa7aedc02b6a</identifier>
+        </ID>
+        <dataTypeID class="oracle.javatools.db.datatypes.DataTypeID">
+          <providerClass>oracle.javatools.db.mysql.MySQLDatabaseImpl</providerClass>
+          <typeName>DATETIME</typeName>
+        </dataTypeID>
+        <properties>
+          <entry>
+            <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+            <value class="oracle.javatools.db.ReferenceID">
+              <parent class="oracle.javatools.db.ReferenceID">
+                <name>fecha_hora</name>
+                <parent class="oracle.javatools.db.ReferenceID">
+                  <name>ds_ubicaciones</name>
+                  <schemaName>deltasys</schemaName>
+                  <type>TABLE</type>
+                </parent>
+                <type>COLUMN</type>
+              </parent>
+              <type>DataTypeUsage</type>
+            </value>
+          </entry>
+        </properties>
+      </dataTypeUsage>
+      <notNull>true</notNull>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>fecha_hora</name>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>ds_ubicaciones</name>
+              <schemaName>deltasys</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <type>COLUMN</type>
+          </value>
+        </entry>
+      </properties>
+    </column>
+  </columns>
+  <constraints>
+    <constraint class="oracle.javatools.db.FKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">185be2be-d9cd-4151-b0ac-0be68cab9d56</identifier>
+      </ID>
+      <name>fk_ds_ubicaciones_ds_usuarios1</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>oid</name>
+          <identifier class="java.lang.String">48348758-ecf4-4ea8-8863-de140828ff72</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>ds_ubicaciones</name>
+            <identifier class="java.lang.String">a79d92c2-473d-404c-a245-d27cf8c6f3cf</identifier>
+            <schemaName>deltasys</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>deltasys</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <deleteMode>0</deleteMode>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>fk_ds_ubicaciones_ds_usuarios1</name>
+            <childObjectNames>
+              <childObjectName>oid</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>ds_ubicaciones</name>
+              <schemaName>deltasys</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>FKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+      <referenceID class="oracle.javatools.db.IdentifierBasedID">
+        <name>PRIMARY</name>
+        <identifier class="java.lang.String">a76cec16-27f4-4af9-ac82-43986f78389e</identifier>
+        <parent class="oracle.javatools.db.IdentifierBasedID">
+          <name>ds_usuarios</name>
+          <identifier class="java.lang.String">f243e59c-14cc-4e99-b954-c3b24cfa3ed2</identifier>
+          <schemaName>deltasys</schemaName>
+          <type>TABLE</type>
+        </parent>
+        <schemaName>deltasys</schemaName>
+        <type>CONSTRAINT</type>
+      </referenceID>
+    </constraint>
+    <constraint class="oracle.javatools.db.PKConstraint">
+      <ID class="oracle.javatools.db.IdentifierBasedID">
+        <identifier class="java.lang.String">6d7b7604-19e9-490c-9807-910b0b34455b</identifier>
+      </ID>
+      <name>PRIMARY</name>
+      <columnIDs>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>oid</name>
+          <identifier class="java.lang.String">48348758-ecf4-4ea8-8863-de140828ff72</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>ds_ubicaciones</name>
+            <identifier class="java.lang.String">a79d92c2-473d-404c-a245-d27cf8c6f3cf</identifier>
+            <schemaName>deltasys</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>deltasys</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+        <columnID class="oracle.javatools.db.IdentifierBasedID">
+          <name>fecha_hora</name>
+          <identifier class="java.lang.String">c25de7a1-a09c-462d-bac1-0636ec239edd</identifier>
+          <parent class="oracle.javatools.db.IdentifierBasedID">
+            <name>ds_ubicaciones</name>
+            <identifier class="java.lang.String">a79d92c2-473d-404c-a245-d27cf8c6f3cf</identifier>
+            <schemaName>deltasys</schemaName>
+            <type>TABLE</type>
+          </parent>
+          <schemaName>deltasys</schemaName>
+          <type>COLUMN</type>
+        </columnID>
+      </columnIDs>
+      <enabled>true</enabled>
+      <properties>
+        <entry>
+          <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+          <value class="oracle.javatools.db.ReferenceID">
+            <name>PRIMARY</name>
+            <childObjectNames>
+              <childObjectName>oid</childObjectName>
+              <childObjectName>fecha_hora</childObjectName>
+            </childObjectNames>
+            <parent class="oracle.javatools.db.ReferenceID">
+              <name>ds_ubicaciones</name>
+              <schemaName>deltasys</schemaName>
+              <type>TABLE</type>
+            </parent>
+            <subType>PKConstraint</subType>
+            <type>CONSTRAINT</type>
+          </value>
+        </entry>
+      </properties>
+    </constraint>
+  </constraints>
+  <properties>
+    <entry>
+      <key>OfflineDBConstants.IMPORT_SOURCE_ID</key>
+      <value class="oracle.javatools.db.ReferenceID">
+        <name>ds_ubicaciones</name>
+        <schemaName>deltasys</schemaName>
+        <type>TABLE</type>
+      </value>
+    </entry>
+    <entry>
+      <key>TableType</key>
+      <value class="oracle.javatools.db.Table$TableType">NORMAL</value>
+    </entry>
+  </properties>
+  <schema>
+    <name>deltasys</name>
+  </schema>
+</table>

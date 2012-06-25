@@ -1,6 +1,7 @@
 package controllers;
 
 import deltasys.model.DsPerfilesReglamento;
+import deltasys.model.DsSectores;
 import deltasys.model.DsUsuarios;
 import deltasys.model.JavaServiceFacade;
 
@@ -18,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-public class DsPerfilesReglamentoController extends HttpServlet {
-    
+public class DsSectoresController extends HttpServlet {
+  
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
           
@@ -63,25 +64,18 @@ public class DsPerfilesReglamentoController extends HttpServlet {
             
             if(action.equals("select"))
             {     
-                String oid = jsonObject.getString("oid");   
-                
-                DsUsuarios usuario = facade.getDsUsuariosFindUsuario(oid);
+                List<DsSectores> dssectores = facade.getDsSectoresFindAll();
               
-                int id_perfil = usuario.getDsPerfiles().getId_perfil();
-                List<DsPerfilesReglamento> perfilesReglamento = facade.getDsPerfilesReglamentoFindReglamentoPerfil(id_perfil);
                 
-                for (int i=0;i<perfilesReglamento.size();i++) 
+                for (int i=0;i<dssectores.size();i++) 
                 {    
                     JSONObject obj = new JSONObject();
                     
-                    DsPerfilesReglamento perfilReglamento = perfilesReglamento.get(i);
+                    DsSectores dssector = dssectores.get(i);
                     
-                    obj.put("id_articulo", perfilReglamento.getId_articulo());                       
-                    obj.put("id_fraccion", perfilReglamento.getId_fraccion());                     
-                    obj.put("id_inciso", perfilReglamento.getId_inciso());                      
-                    obj.put("descripcion", perfilReglamento.getDsReglamento().getDescripcion());          
-                    obj.put("salarios", perfilReglamento.getDsReglamento().getNum_salarios());   
-                
+                    obj.put("id_sector", dssector.getId_setor());                       
+                    obj.put("sector", dssector.getSector());            
+                    
                     ja.add(obj);  
                 }                             
               
@@ -106,4 +100,5 @@ public class DsPerfilesReglamentoController extends HttpServlet {
       protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
           doGet(req,res);
         }
+  
 }

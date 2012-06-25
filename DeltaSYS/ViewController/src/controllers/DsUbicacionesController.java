@@ -1,12 +1,13 @@
 package controllers;
 
-import deltasys.model.DsPerfilesReglamento;
-import deltasys.model.DsUsuarios;
+import deltasys.model.DsUbicaciones;
 import deltasys.model.JavaServiceFacade;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import java.sql.Timestamp;
 
 import java.util.List;
 
@@ -18,8 +19,8 @@ import javax.servlet.http.HttpServletResponse;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
-public class DsPerfilesReglamentoController extends HttpServlet {
-    
+public class DsUbicacionesController extends HttpServlet 
+{
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
           
@@ -63,25 +64,25 @@ public class DsPerfilesReglamentoController extends HttpServlet {
             
             if(action.equals("select"))
             {     
-                String oid = jsonObject.getString("oid");   
+                String oid = jsonObject.getString("oid");
+                String sfecha_inicio = jsonObject.getString("fecha_inicio");
+                String sfecha_fin = jsonObject.getString("fecha_fin");
                 
-                DsUsuarios usuario = facade.getDsUsuariosFindUsuario(oid);
+                Timestamp fecha_incio = Timestamp.valueOf(sfecha_inicio+" 00:00:00");                
+                Timestamp fecha_fin = Timestamp.valueOf(sfecha_fin+" 23:59:59");  
+                
+                List<DsUbicaciones> dsubicaciones = facade.getDsUbicacionesFindUbicacionesOficial(oid,fecha_incio,fecha_fin);
               
-                int id_perfil = usuario.getDsPerfiles().getId_perfil();
-                List<DsPerfilesReglamento> perfilesReglamento = facade.getDsPerfilesReglamentoFindReglamentoPerfil(id_perfil);
-                
-                for (int i=0;i<perfilesReglamento.size();i++) 
+                for (int i=0;i<dsubicaciones.size();i++) 
                 {    
                     JSONObject obj = new JSONObject();
                     
-                    DsPerfilesReglamento perfilReglamento = perfilesReglamento.get(i);
+                    DsUbicaciones dsubicacion = dsubicaciones.get(i);
+                     
+                    obj.put("latitud", dsubicacion.getLatitud());
+                    obj.put("longitud", dsubicacion.getLongitud());                          
+                    obj.put("date", dsubicacion.getFecha_hora());            
                     
-                    obj.put("id_articulo", perfilReglamento.getId_articulo());                       
-                    obj.put("id_fraccion", perfilReglamento.getId_fraccion());                     
-                    obj.put("id_inciso", perfilReglamento.getId_inciso());                      
-                    obj.put("descripcion", perfilReglamento.getDsReglamento().getDescripcion());          
-                    obj.put("salarios", perfilReglamento.getDsReglamento().getNum_salarios());   
-                
                     ja.add(obj);  
                 }                             
               
@@ -106,4 +107,5 @@ public class DsPerfilesReglamentoController extends HttpServlet {
       protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
           doGet(req,res);
         }
+    
 }

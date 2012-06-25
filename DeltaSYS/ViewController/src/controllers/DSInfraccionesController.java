@@ -1,12 +1,18 @@
 package controllers;
 
 import deltasys.model.DsInfracciones;
+import deltasys.model.DsIntervalo;
 import deltasys.model.DsReglamento;
+import deltasys.model.DsUsuarios;
 import deltasys.model.JavaServiceFacade;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import java.math.BigDecimal;
+
+import java.sql.Timestamp;
 
 import java.util.List;
 
@@ -62,6 +68,38 @@ public class DSInfraccionesController extends HttpServlet
             String action = jsonObject.getString("action");
             JSONObject jsonParameters = jsonObject.getJSONObject("parameters");      
               
+            if(action.equals("insert"))
+            { 
+                
+                DsInfracciones dsinfracciones = new DsInfracciones();
+                
+                int id_folio = jsonObject.getInt("folio");                 
+                String id_oid = jsonObject.getString("oid");                 
+                String num_placa = jsonObject.getString("num_placa");                 
+                String fecha = jsonObject.getString("fecha");      
+                Timestamp fecha_hora = Timestamp.valueOf(fecha);
+                BigDecimal latitud = new BigDecimal(jsonObject.getString("latitud"));                 
+                BigDecimal longitud = new BigDecimal(jsonObject.getString("longitud")); 
+                String descripcion = jsonObject.getString("descripcion");
+                String nom_infractor= jsonObject.getString("nom_infractor");
+                String domicilio = jsonObject.getString("domicilio");
+                String licencia = jsonObject.getString("licencia");
+                
+                int id_articulo = jsonObject.getInt("id_articulo");
+                String id_fraccion = jsonObject.getString("id_fraccion");
+                String id_inciso = jsonObject.getString("id_inciso");
+                DsReglamento dsReglamento = facade.getDsReglamentoFindReglamento(id_articulo, id_fraccion, id_inciso);
+                
+                BigDecimal monto = new BigDecimal(jsonObject.getString("monto"));   
+                
+                dsinfracciones = new DsInfracciones(descripcion, domicilio, fecha_hora, id_folio, dsReglamento, id_oid, latitud, licencia, longitud, monto, nom_infractor, num_placa);
+
+                facade.persistDsInfracciones(dsinfracciones);
+                
+                JSONObject json = new JSONObject();        
+                json.put("id", "");
+                resultado = json.toString();
+            }
             
             if(action.equals("select"))
             {     
