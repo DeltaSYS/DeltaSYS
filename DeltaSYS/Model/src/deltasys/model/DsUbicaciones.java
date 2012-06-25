@@ -22,6 +22,7 @@ import javax.persistence.Table;
     })
 @Table(name = "\"ds_ubicaciones\"")
 public class DsUbicaciones implements Serializable {
+    @Id
     @Column(name = "fecha_hora")
     private Timestamp fecha_hora;
     @Column(name = "latitud")

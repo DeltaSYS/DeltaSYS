@@ -1,6 +1,16 @@
 
 var Controller = "DsSectoresController";
 
+var map;
+
+var latitud = 19.432805;
+var longitud = -99.133289;
+
+$(document).ready(function()
+{
+    mapa(latitud, longitud);
+});
+
 function consultaSectores()
 { 
   //ajax
@@ -111,19 +121,58 @@ function consultaUbicaciones(objOficial)
 function consultaUbicacionesRes(obj,result)
 {    
     jsonInfracciones = $.evalJSON($.toJSON(obj));
-    
-    var str = "<table>";
-        
+     
+       
     for(var i = 0; i < jsonInfracciones.length;i++)
-    {
+    {   
         var jsonInfraccion = jsonInfracciones[i];
+        latitud = jsonInfraccion.latitud;
+        longitud = jsonInfraccion.longitud;
+        
+        if(i==0)
+        {
+             mapa(latitud,longitud);
+        }
+        else
+        {   
+            var jsonInfraccionAnt = jsonInfracciones[i-1];
+            
+             var latitudant = jsonInfraccionAnt.latitud;
+             var longitudant = jsonInfraccionAnt.longitud;
+             
+             
+            map.drawRoute({
+              origin: [latitudant, longitudant],
+              destination: [latitud, longitud],
+              travelMode: 'walking',
+              strokeColor: '#131540',
+              strokeOpacity: 0.6,
+              strokeWeight: 6
+            });
+            
+        }
     
-        str += "        <tr>";
-        str += "            <td>"+jsonInfraccion.latitud+","+jsonInfraccion.longitud+"</td>";
-        str += "        </tr>";
+        map.addMarker({
+            lat: latitud,
+            lng: longitud/*,
+            title:  'title',
+            infoWindow: 
+            {
+              content: 'content'
+            }*/
+        });    
+        
     }
     
-    str += "</table>";   
-    
     $("#dvUbicaciones").html(str);
+}
+
+function mapa(latitud,longitud)
+{
+    map=new GMaps({
+              div: '#map',
+              lat: latitud,
+              lng: longitud,
+              zoom:14
+            });
 }

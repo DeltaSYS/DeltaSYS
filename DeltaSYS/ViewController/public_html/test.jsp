@@ -7,6 +7,9 @@
     <script src="js/validation/lib/jquery.metadata.js" type="text/javascript"></script>
     <script src="js/uniform/jquery.uniform.js" type="text/javascript"></script>
     <script src="js/jquery/jquery.json-2.2.js" type="text/javascript"></script>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script language="javascript" src="js/gmaps.js"></script>
+  <script type="text/javascript" src="js/prettify/prettify.js"></script>
     <script language="javascript" src="js/funciones.js"></script>
     <script language="javascript" src="js/deltasys.js"></script>
     <script language="javascript" src="test.js"></script>
@@ -56,20 +59,18 @@
               </td>
             </tr>
             
-              
-            <tr>
-              <td>
-                &nbsp;
-              </td>
-              <td align="right">
-                <input type="button" size="20px;" value="Consultar" maxlength="20" onclick="consultar(frmData)"/>
-              </td>
-            </tr>
+            
           </table>
           </form>
         
         </td>
       </tr>
+      
+    <tr>
+      <td align="center">
+          <div id="map" style="width:600px;height:350px;"></div>
+      </td>
+    </tr>
     </table>
     
     
