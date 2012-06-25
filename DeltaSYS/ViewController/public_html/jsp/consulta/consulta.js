@@ -29,10 +29,7 @@ function consultarRes(obj,result)
 {      
     jsonInfracciones = $.evalJSON($.toJSON(obj));
     
-    var strInfracciones = "<table>";
-    strInfracciones += "        <tr>";
-    strInfracciones += "            <th>Folio(s)</th>";
-    strInfracciones += "        </tr>";
+    var strInfracciones = "";
                              
     for(var i = 0; i < jsonInfracciones.length;i++)
     {
@@ -43,9 +40,7 @@ function consultarRes(obj,result)
         strInfracciones += "        </tr>";
     }
     
-    strInfracciones += "</table>";   
-    
-    $("#dvFolios").html(strInfracciones);
+    $("#tableFolios").children("tbody").html(strInfracciones);
 }
 
 

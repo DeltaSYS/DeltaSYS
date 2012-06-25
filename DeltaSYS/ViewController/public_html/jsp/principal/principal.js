@@ -1,28 +1,36 @@
 
 var Controller = "DsUsuariosController";
 
-function autenticar(form)
-{ 
-  //ajax
-  var objParam = new Object();
-  
-  objParam.oid = form.oid.value;
-  objParam.password = form.password.value.replace("'","''");
-  objParam.action="autentify";
-          
-  $.ajax({
-      type : "POST",
-      url : Controller, // Llamamos al servlet UsuarioController                 
-      data: $.toJSON(objParam),// PARSEAMOS EL OBJETO jsoN A STRING Y LO MANDAMOS
-      success : autenticarRes,
-      error : function (XMLHttpRequest, textStatus, errorThrown) {
-          alert(errorThrown)
-      }
-  });
-} 
+$(document).ready(function(){
+
+    $("#btnSubmit").click(function (e)
+    {       
+      //ajax
+      e.preventDefault();
+      var objParam = {};
+      
+      form = $("#login form")[0];      
+      objParam.oid = form.oid.value;
+      objParam.password = form.password.value.replace("'","''");
+      objParam.action="autentify";
+      
+      $.ajax({
+          type : "POST",
+          url : Controller, // Llamamos al servlet UsuarioController                 
+          data: $.toJSON(objParam),// PARSEAMOS EL OBJETO jsoN A STRING Y LO MANDAMOS
+          success : autenticarRes,
+          error : function (XMLHttpRequest, textStatus, errorThrown) {
+              alert(errorThrown)
+          }
+      });
+    })
+
+});
+
 
 function autenticarRes(obj,result)
 {
+
     if(obj!="")
     {
         var loggedon = obj[0].loggedon;
@@ -37,6 +45,24 @@ function autenticarRes(obj,result)
             document.frmData.perfil.value = obj[0].perfil;
             document.frmData.loggedon.value = obj[0].loggedon;*/
             
+            var rol = obj[0].id_perfil;
+            var urlDeRol="supervisor.jsp";
+            
+            
+            if(rol == "1")
+                urlDeRol="Subdirector.jsp";
+                
+            urlDeRol = "jsp/"+ urlDeRol;
+            
+            $.ajax({
+                  type : "GET",
+                  url : urlDeRol, // Llamamos al servlet UsuarioController                 
+                  success : cargaPantalla,
+                  error : function (XMLHttpRequest, textStatus, errorThrown) {
+                      alert(errorThrown)
+                  }
+              });
+            
             return;
         }
     }
@@ -45,8 +71,33 @@ function autenticarRes(obj,result)
     alert("Datos de usuario incorrectos");
 }
 
-function pressKey()
+function cargaPantalla(htmlPantalla)
 {
-  if(event.keyCode==13)// press ENTER   
-    autenticar(document.frmData);
+
+    $("#content").html(htmlPantalla);
+    
+    $("#menuGeneral li").click(function(){             
+        idMenuElegido = this.id;
+        
+        
+        urlDeRol =  "jsp/"+idMenuElegido+"/"+ idMenuElegido+".jsp";
+            
+        $.ajax({
+              type : "GET",
+              url : urlDeRol, // Llamamos al servlet UsuarioController                 
+              success : cargaSubPantalla,
+              error : function (XMLHttpRequest, textStatus, errorThrown) {
+                  alert(errorThrown)
+              }
+        });
+            
+        
+     });
+}
+
+
+function cargaSubPantalla(htmlPantalla)
+{
+
+    $("#contenedorOpciones").html(htmlPantalla);
 }

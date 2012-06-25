@@ -4,7 +4,7 @@
         </div><!--end top-->
         
         <div id="left" class="left">
-            <img class="imagen" src="resources/images/reloj.JPG"  alt="Establecer intervalo" />
+            <img class="imagen" src="resources/images/reloj.JPG"  alt="Establecer intrvalo" />
           <h3>Establecer intervalo</h3>
         </div> <!--end left-->
         

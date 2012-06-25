@@ -1,9 +1,8 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE HTML>
 <%@ page contentType="text/html;charset=windows-1252"%>
 
 <%
     String consulta = request.getParameter("consulta")!=null?request.getParameter("consulta").toString():"no";
-
 %>
 
 <html>
@@ -33,9 +32,9 @@
   <body>
     <div id="full" >
       <div id="head">
-        <h1>Sistema &Uacute;nico de Infraccciones</h1>
+        <h1>Sistema &Uacute;nico de Infracciones</h1>
       </div> <!--end head-->
-      
+      <div id="content">
       <%
       if(consulta.equals("si")){
       %>
@@ -45,7 +44,7 @@
       %>
         <jsp:include page="/jsp/principal/principal.jsp" />
       <%}%>
-      
+      </div>
       <div id="footer" >
         <h3>DeltaSys</h3>
       </div> <!--end footer-->

@@ -2,20 +2,20 @@ body
 {
   background-color: White;
   color: black;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family:Verdana, Arial, Helvetica, sans-serif;  
+  font-size:12px;
 }
 h1
 {
-  color: navy;
-  font-family: Arial, Helvetica, sans-serif;
+   font-size:1.5em;
   font-size: x-large;
   font-weight: bolder;
   text-transform: capitalize;
+  padding:10px;
 }
 h2
 {
   color: navy;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: large;
   font-weight: bolder;
   text-transform: capitalize;
@@ -28,42 +28,105 @@ h3
   font-weight: lighter;
   text-transform: capitalize;
 }
+
+
+textarea{
+    border:1px solid #ccc;
+    color:#444;
+    padding:5px;
+    border-radius:5px;
+}
+
+input[type="text"],input[type="password"]{
+    border:1px solid #ccc;
+    color:#444;
+    padding:5px;
+    border-radius:5px;
+}
+
+input[type="button"],input[type="submit"]{
+    background-color:white;
+    border:1px solid #aaa;
+    color:#444;
+    font-weight:bold;
+    padding:5px;
+    border-radius:5px;
+    box-shadow: 0 0 2px 1px #ccc;
+    cursor:pointer;
+}
+
 #full
 {
-width:970px;
-padding:10px;
-border:3px solid Gray;
-margin:0px;
-position: absolute;
-top:5px;
+position:relative;
+width:80%;
 left:10%;
+margin:0px;
+box-shadow: 0 0 5px 1px #666;
+border-radius:10px;
+
 }
 #head
 {
-width:950px;
+width:100%;
 height: 50px;
-padding:5px;
-border:5px solid Orange;
+color:white;
 margin:0px;
 position: relative;
+border-radius:10px 10px 0 0;
+
+background-image: linear-gradient(bottom, rgb(26,46,59) 0%, rgb(121,174,201) 100%);
+background-image: -o-linear-gradient(bottom, rgb(26,46,59) 0%, rgb(121,174,201) 100%);
+background-image: -moz-linear-gradient(bottom, rgb(26,46,59) 0%, rgb(121,174,201) 100%);
+background-image: -webkit-linear-gradient(bottom, rgb(26,46,59) 0%, rgb(121,174,201) 100%);
+background-image: -ms-linear-gradient(bottom, rgb(26,46,59) 0%, rgb(121,174,201) 100%);
+
+background-image: -webkit-gradient(
+	linear,
+	left bottom,
+	left top,
+	color-stop(0, rgb(26,46,59)),
+	color-stop(1, rgb(121,174,201))
+);
+
+
 }
 #content
 {
-width:950px;
 height: 500px;
-padding:5px;
-border:5px  solid Silver;
 margin:0px;
 position: relative;
 }
 #footer
 {
-width:950px;
 height:50px;
 padding:5px;
-border:5px solid Orange ;
+border-radius:0 0 10px 10px;
+
+background-image: linear-gradient(top, rgb(102,54,5) 0%, rgb(255,153,0) 100%);
+background-image: -o-linear-gradient(top, rgb(102,54,5) 0%, rgb(255,153,0) 100%);
+background-image: -moz-linear-gradient(top, rgb(102,54,5) 0%, rgb(255,153,0) 100%);
+background-image: -webkit-linear-gradient(top, rgb(102,54,5) 0%, rgb(255,153,0) 100%);
+background-image: -ms-linear-gradient(top, rgb(102,54,5) 0%, rgb(255,153,0) 100%);
+
+background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, rgb(102,54,5)),
+	color-stop(1, rgb(255,153,0))
+);
+
 margin:0px;
 }
+
+
+#footer h3{
+    color:white;
+    margin:0;
+    padding:10px;
+    text-align:right;
+}
+
 #query
 {
 width:420px;
@@ -88,44 +151,123 @@ left:500px;
 }
 #left
 {
-width:100px;
-height: 440px;
-padding:5px;
-border:1px;
+width:26%;
 margin:0px;
-position: absolute;
-top:60px;
-left:20px;
+display:inline-block;
+vertical-align:top;
+text-align:center;
+padding:10px;
 }
 #right
 {
-width:785px;
-height: 440px;
-padding:5px;
-border:1px;
+width:70%;
 margin:0px;
-position: absolute;
-top:60px;
-left:150px;
+display:inline-block;
+vertical-align:top;
 }
 #top
 {
-width:915px;
 height: 40px;
 padding:5px;
 border:1px;
 margin:0px;
-position: absolute;
-top:0px;
-left:20px;
 }
+
+
+#btnRegresar{
+    position:absolute;
+    right:0px;
+    margin-right:10px;
+    
+}
+
 img.imagen
 {
-width:100px;
-height:170px;
+border:2px solid transparent;
+box-shadow: 0 0 2px 1px #ccc;
+
 }
-img.reloj
+
+
+img.imagen:hover
 {
-width:100;
-height:100;
+
+border:2px solid #333;
+cursor:pointer;
+
+}
+
+
+#left img.imagen
+{
+width:100px;
+box-shadow: 0 0 2px 1px #ccc;
+
+}
+
+
+#tableFolios,#frmDetalle{
+
+    display:inline-block;
+    vertical-align:top;
+}
+
+#tableFolios tbody tr:nth-child(even){
+    background-color:#ccc;
+    color:white;
+    cursor:pointer;
+}
+
+#tableFolios tbody tr:nth-child(odd){
+    background-color:#aaa;
+    color:white;
+    cursor:pointer;
+}
+
+
+
+form label,form input,form textarea{
+    display:inline-block;
+    vertical-align:top;
+}
+
+
+form fieldset{
+    padding:10px;
+}
+
+form label{
+    width:200px;
+}
+
+form div{
+    display:block;
+    margin:5px 0;
+}
+
+#contenedorOpciones .opcionmenu{
+    display:none;
+}
+
+#contenedorOpciones .opcionmenu:nth-child(1){
+    display:block;
+}
+
+li
+{
+	display:inline-block;
+	width:100px;
+	padding:4px 0;
+	text-decoration:none;
+	text-align:center;
+	font-size:11px;
+	color:#666;
+	background-color:white;
+	border-left:10px solid #444;
+}
+li:hover
+{
+	color:white;
+	background-color:#444;
+	border-left-color:#999;
 }
