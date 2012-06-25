@@ -36,7 +36,11 @@
   </servlet>
   <servlet>
     <servlet-name>DsPerfilesReglamentoController</servlet-name>
-    <servlet-class>DsPerfilesReglamentoController</servlet-class>
+    <servlet-class>controllers.DsPerfilesReglamentoController</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>DsIntervaloController</servlet-name>
+    <servlet-class>controllers.DsIntervaloController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
@@ -57,5 +61,9 @@
   <servlet-mapping>
     <servlet-name>DsPerfilesReglamentoController</servlet-name>
     <url-pattern>/DsPerfilesReglamentoController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DsIntervaloController</servlet-name>
+    <url-pattern>/DsIntervaloController</url-pattern>
   </servlet-mapping>
 </web-app>

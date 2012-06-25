@@ -71,15 +71,17 @@ public class DsPerfilesReglamentoController extends HttpServlet {
                 int id_perfil = usuario.getDsPerfiles().getId_perfil();
                 List<DsPerfilesReglamento> perfilesReglamento = facade.getDsPerfilesReglamentoFindReglamentoPerfil(id_perfil);
                 
-                for (int i=0;i<=perfilesReglamento.size();i++) 
+                for (int i=0;i<perfilesReglamento.size();i++) 
                 {    
                     JSONObject obj = new JSONObject();
                     
                     DsPerfilesReglamento perfilReglamento = perfilesReglamento.get(i);
                     
-                    obj.put("id_articulo", perfilReglamento.getId_articulo());                    
-                    obj.put("id_perfil", perfilReglamento.getId_perfil());                    
-                    obj.put("id_inciso", perfilReglamento.getId_inciso());   
+                    obj.put("id_articulo", perfilReglamento.getId_articulo());                       
+                    obj.put("id_fraccion", perfilReglamento.getId_fraccion());                     
+                    obj.put("id_inciso", perfilReglamento.getId_inciso());                      
+                    obj.put("descripcion", perfilReglamento.getDsReglamento().getDescripcion());          
+                    obj.put("salarios", perfilReglamento.getDsReglamento().getNum_salarios());   
                 
                     ja.add(obj);  
                 }                             

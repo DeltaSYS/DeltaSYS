@@ -25,18 +25,18 @@ public class DsPerfilesReglamento implements Serializable {
     @Column(name = "id_articulo", nullable = false, insertable = false, updatable = false)
     private int id_articulo;
     @Id
-    @Column(name = "id_fraccion", nullable = false, insertable = false, updatable = false)
+    @Column(name = "id_fraccion", nullable = true, insertable = false, updatable = false)
     private String id_fraccion;
     @Id
-    @Column(name = "id_inciso", nullable = false, insertable = false, updatable = false)
+    @Column(name = "id_inciso", nullable = true, insertable = false, updatable = false)
     private String id_inciso;
     @Id
     @Column(name = "id_perfil", nullable = false, insertable = false, updatable = false)
     private int id_perfil;
     @ManyToOne
-    @JoinColumns( { @JoinColumn(name = "id_inciso", referencedColumnName = "id_articulo"),
+    @JoinColumns( { @JoinColumn(name = "id_articulo", referencedColumnName = "id_articulo"),
                     @JoinColumn(name = "id_fraccion", referencedColumnName = "id_fraccion"),
-                    @JoinColumn(name = "id_articulo", referencedColumnName = "id_inciso") })
+                    @JoinColumn(name = "id_inciso", referencedColumnName = "id_inciso") })
     private DsReglamento dsReglamento;
     @ManyToOne
     @JoinColumn(name = "id_perfil")
