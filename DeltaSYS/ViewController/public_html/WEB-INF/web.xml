@@ -55,7 +55,6 @@
     <servlet-class>controllers.DsUbicacionesController</servlet-class>
   </servlet>
   <servlet>
-    <display-name>/DsCancelacionesController</display-name>
     <servlet-name>DsCancelacionesController</servlet-name>
     <servlet-class>controllers.DsCancelacionesController</servlet-class>
   </servlet>
@@ -94,5 +93,9 @@
   <servlet-mapping>
     <servlet-name>DsUbicacionesController</servlet-name>
     <url-pattern>/DsUbicacionesController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DsCancelacionesController</servlet-name>
+    <url-pattern>/DsCancelacionesController</url-pattern>
   </servlet-mapping>
 </web-app>

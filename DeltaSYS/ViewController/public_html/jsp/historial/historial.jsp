@@ -38,28 +38,14 @@
                     <div id="dvOficiales"></div>
                   </td>
                 </tr>
-                <tr>
-                  <td class="subtitulo" align="left">
-                    Ubicaci&oacute;n
-                  </td>
-                </tr>
-                <tr>
-                  <td align="right">
-                    <div id="dvUbicaciones"></div>
-                  </td>
-                </tr>
-                
                 
               </table>
               </form>
             
             </td>
-          </tr>
-          
-        <tr>
-          <td align="center">
-              <div id="map"></div>
-          </td>
+              <td align="center">
+                  <div id="map"></div>
+              </td>
         </tr>
         </table>
     </div><!--end right-->

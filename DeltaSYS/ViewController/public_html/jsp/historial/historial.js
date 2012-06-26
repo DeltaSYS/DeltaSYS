@@ -6,10 +6,13 @@ var map;
 var latitud = 19.432805;
 var longitud = -99.133289;
 
-$(document).ready(function()
+
+function jsLoaded()
 {
+    consultaSectores();
     mapa(latitud, longitud);
-});
+}
+
 
 function consultaSectores()
 { 
@@ -47,8 +50,6 @@ function consultaSectoresRes(obj,result)
     
     $("#dvSectores").html(str);
 }
-
-consultaSectores();
 
 function consultaOficiales(objSector)
 { 
@@ -163,8 +164,7 @@ function consultaUbicacionesRes(obj,result)
         });    
         
     }
-    
-    $("#dvUbicaciones").html(str);
+
 }
 
 function mapa(latitud,longitud)
