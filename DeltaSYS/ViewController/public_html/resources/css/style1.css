@@ -258,33 +258,38 @@ li
 	display:inline-block;
 	width:100px;
 	padding:4px 0;
-	text-decoration:none;
 	text-align:center;
 	font-size:11px;
 	color:#666;
 	background-color:white;
-	border-left:5px solid #444;
+	border:1px solid #444;
+        border-radius:5px;
 }
 li:hover
 {
 	color:white;
 	background-color:#444;
-	border-left-color:#444;
+	border:1px solid #444;
+        cursor:pointer;
 }
 
 td.subtitulo
 {
-        color: #eee;
-        background: #333;
-        border:1px solid #000; 
-        display:inline-block;
+    border:1px solid #ccc;
+    color:#444;
+    padding:5px;   
+    border-radius:5px;
+    display:inline-block;
 }
 td.subtitulo:hover
 {
-        color: #333;
-        background: #ddd;
-        border:1px solid #000;
-        cursor:pointer;
+    border:1px solid #ccc;
+    color:#ccc;
+    backgroud-color:#444;
+    padding:5px;   
+    border-radius:5px;
+    display:inline-block;
+    cursor:pointer;
 }
 #map
 {

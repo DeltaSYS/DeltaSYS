@@ -90,7 +90,7 @@ function cargaPantalla(htmlPantalla)
                   alert(errorThrown)
               }
         });
-            
+        loadDynamicJS(urlDeRol.replace(".jsp",".js"))            
         
      });
 }

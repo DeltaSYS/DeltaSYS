@@ -4,7 +4,7 @@
     </div><!--end top-->
         
     <div id="left" class="left">
-            <img class="imagen" src="resources/images/cancelar.jpg"  alt="Historial" />
+            <img class="imagen" src="resources/images/historial.jpg"  alt="Historial" />
           <h3>Historial de ubicaci&oacute;n</h3>
     </div> <!--end left-->
     <div id="right">
@@ -40,7 +40,7 @@
                 </tr>
                 <tr>
                   <td class="subtitulo" align="left">
-                    Ubicación
+                    Ubicaci&oacute;n
                   </td>
                 </tr>
                 <tr>
