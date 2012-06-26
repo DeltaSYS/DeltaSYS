@@ -1,11 +1,10 @@
 // funciones básicas 
 
- $(document).ready(function () {
+$(document).ready(function () {
     //$("select, input:text, input:button, input:checkbox, input:radio, input:password, input:submit").uniform();
-
 });
 
-
+var global_oid;
 
 function isArray(a) { return isObject(a) && a.constructor == Array }                              // Valida si el objeto es una instancia de Array
 function isBoolean(a) { return typeof a == 'boolean' }                                            // Valida si el objeto es de tipo boolean

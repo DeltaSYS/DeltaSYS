@@ -251,6 +251,14 @@ public class JavaServiceFacade {
         return entityManagerHelper.getEntityManager().createNamedQuery("DsCancelaciones.findAll").getResultList();
     }
 
+    public List<DsCancelaciones> getDsCancelacionesFindFolioCancelado(Long id_folio) 
+    {
+        Query objFind = entityManagerHelper.getEntityManager().createNamedQuery("DsCancelaciones.findFolioCancelado");
+        objFind.setParameter("id_folio", id_folio);
+        return objFind.getResultList();
+    }
+
+
     public DsPerfilesReglamento persistDsPerfilesReglamento(DsPerfilesReglamento dsPerfilesReglamento) {
         return (DsPerfilesReglamento)entityManagerHelper.persistEntity(dsPerfilesReglamento);
     }

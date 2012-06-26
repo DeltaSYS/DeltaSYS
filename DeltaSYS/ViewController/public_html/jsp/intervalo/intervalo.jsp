@@ -15,7 +15,7 @@
                   <tr>
                     <th>Establecer Intervalo(minutos)</th>
                     <td><input type="text" id="tiempo" name="tiempo" onkeypress=""/></td>
-                    <td align="center" ><input type="button" value="Actualiazar tiempo" onclick=""/></td>
+                    <td align="center" ><input type="button" value="Actualiazar tiempo" onclick="actualizaIntervalo()"/></td>
                   </tr>
                   <tr>
                     <td>Responsable de modificaci&oacute;n </td>

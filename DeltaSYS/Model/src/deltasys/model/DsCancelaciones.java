@@ -16,7 +16,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@NamedQueries( { @NamedQuery(name = "DsCancelaciones.findAll", query = "select o from DsCancelaciones o") })
+@NamedQueries({ 
+            @NamedQuery(name = "DsCancelaciones.findAll", query = "select o from DsCancelaciones o") ,
+            @NamedQuery(name = "DsCancelaciones.findFolioCancelado", query = "select o from DsCancelaciones o where o.id_folio = :id_folio") 
+        })
 @Table(name = "\"ds_cancelaciones\"")
 public class DsCancelaciones implements Serializable {
     @Temporal(TemporalType.DATE)

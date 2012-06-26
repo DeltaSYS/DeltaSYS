@@ -1,7 +1,7 @@
 package controllers;
 
-import java.sql.Timestamp;
-
+import deltasys.model.DsCancelaciones;
+import deltasys.model.DsInfracciones;
 import deltasys.model.DsIntervalo;
 import deltasys.model.DsUsuarios;
 import deltasys.model.JavaServiceFacade;
@@ -9,6 +9,9 @@ import deltasys.model.JavaServiceFacade;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
+
+import java.sql.Date;
+import java.sql.Timestamp;
 
 import java.util.List;
 
@@ -19,8 +22,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONObject;
 
-public class DsIntervaloController extends HttpServlet
+public class DsCancelacionesController extends HttpServlet
 {
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
           
@@ -61,34 +65,20 @@ public class DsIntervaloController extends HttpServlet
             
             String action = jsonObject.getString("action");
             
-            if(action.equals("update"))
+            if(action.equals("insert"))
             { 
                 
-                List<DsIntervalo> dsintervalos = facade.getDsIntervaloFindAll();
-                
-                int intervalo = jsonObject.getInt("intervalo");                
-                String oid = jsonObject.getString("oid");
-                DsUsuarios dsusuario = facade.getDsUsuariosFindUsuario(oid);
+                Long id_folio = jsonObject.getLong("id_folio");                
+                String folio_oficio = jsonObject.getString("folio_oficio");
                 String fecha = jsonObject.getString("fecha");
+                DsInfracciones dsInfracciones = facade.getDsInfraccionesFindInfraccion(id_folio);
                   
-                if(dsintervalos.size()==1)
-                {
-                    DsIntervalo dsintervalo = dsintervalos.get(0);  
-                    dsintervalo.setIntervalo(intervalo);                  
-                    dsintervalo.setDsUsuarios(dsusuario);                  
-                    dsintervalo.setFecha_hora_modificado(Timestamp.valueOf(fecha + " 00:00:00"));
-                    //DsIntervalo dsintervalo = (DsIntervalo) JSONObject.toBean( jsonParameters, DsIntervalo.class );//Vaciamos   
+                Date dfecha = Date.valueOf(fecha);
                 
-                    facade.mergeDsIntervalo(dsintervalo);
-                }
-                else
-                {
-                    Timestamp tsfecha = Timestamp.valueOf(fecha + " 00:00:00");
-                    DsIntervalo dsintervalo = new DsIntervalo(tsfecha,1,intervalo,dsusuario); 
-                    //DsIntervalo dsintervalo = (DsIntervalo) JSONObject.toBean( jsonParameters, DsIntervalo.class );//Vaciamos   
-                
-                    facade.persistDsIntervalo(dsintervalo);
-                }
+                DsCancelaciones dscancelaciones = new DsCancelaciones(dfecha,folio_oficio, dsInfracciones);
+                //DsCancelaciones dscancelaciones = (DsCancelaciones) JSONObject.toBean( jsonParameters, DsCancelaciones.class );//Vaciamos   
+            
+                facade.persistDsCancelaciones(dscancelaciones);
                 
                 JSONObject json = new JSONObject();        
                 json.put("id", "");
@@ -98,18 +88,15 @@ public class DsIntervaloController extends HttpServlet
             if(action.equals("select"))
             {     
                 
-                List<DsIntervalo> dsintervalos = facade.getDsIntervaloFindAll();
+                Long id_folio = jsonObject.getLong("int_folio");
+                List<DsCancelaciones> dscancelaciones = facade.getDsCancelacionesFindFolioCancelado(id_folio);
                 
                 JSONObject obj = new JSONObject();
                 
-                if(dsintervalos.size()==1)
-                {   
-                    DsIntervalo dsintervalo = dsintervalos.get(0);
-                    obj.put("intervalo", dsintervalo.getIntervalo());                    
-                    obj.put("oid", dsintervalo.getDsUsuarios().getOid());                    
-                    obj.put("responsable", dsintervalo.getDsUsuarios().getNombre());          
-                    obj.put("fecha", dsintervalo.getFecha_hora_modificado());  
-                }
+                if(dscancelaciones.size()==0)
+                    obj.put("cancelado", "no");    
+                else
+                    obj.put("cancelado", "si");    
                 
                 resultado = obj.toString();
                 System.out.println(resultado);
@@ -134,5 +121,4 @@ public class DsIntervaloController extends HttpServlet
       protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
           doGet(req,res);
         }   
-   
 }

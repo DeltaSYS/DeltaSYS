@@ -54,6 +54,11 @@
     <servlet-name>DsUbicacionesController</servlet-name>
     <servlet-class>controllers.DsUbicacionesController</servlet-class>
   </servlet>
+  <servlet>
+    <display-name>/DsCancelacionesController</display-name>
+    <servlet-name>DsCancelacionesController</servlet-name>
+    <servlet-class>controllers.DsCancelacionesController</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>

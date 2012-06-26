@@ -1,6 +1,7 @@
 
 var Controller = "DsUsuariosController";
 
+
 $(document).ready(function(){
 
     $("#btnSubmit").click(function (e)
@@ -40,14 +41,9 @@ function autenticarRes(obj,result)
         
             alert("Bienvenid@ "+obj[0].user);
             
-            /*document.frmData.nombre.value = obj[0].oid;
-            document.frmData.id_perfil.value = obj[0].id_perfil;
-            document.frmData.perfil.value = obj[0].perfil;
-            document.frmData.loggedon.value = obj[0].loggedon;*/
-            
             var rol = obj[0].id_perfil;
             var urlDeRol="supervisor.jsp";
-            
+            global_oid = obj[0].oid;
             
             if(rol == "1")
                 urlDeRol="Subdirector.jsp";
@@ -100,4 +96,6 @@ function cargaSubPantalla(htmlPantalla)
 {
 
     $("#contenedorOpciones").html(htmlPantalla);
+    
+    setTimeout("jsLoaded()",500);
 }
