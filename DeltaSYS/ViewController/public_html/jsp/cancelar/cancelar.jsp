@@ -18,10 +18,14 @@
                   </tr>
                   <tr>
                     <td>Folio de Oficio de cancelaci&oacute;n:</td>
-                    <td><input type="text" id="ofCancelacion"  /></td>
+                    <td><input type="text" id="folio_oficio"  /></td>
                   </tr>
                   <tr>
-                    <td colspan="2" align="center" ><input type="button" value="Confirmar Cancelaci&oacute;n" onclick=""/></td>
+                    <td>Fecha de cancelaci&oacute;n:</td>
+                    <td><input type="text" id="fecha" disabled="disabled" /></td>
+                  </tr>
+                  <tr>
+                    <td colspan="2" align="center" ><input type="button" value="Cancelar" onclick="consultaCancelado()"/></td>
                   </tr>
                 </table>
               </form>

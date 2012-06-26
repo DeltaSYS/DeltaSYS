@@ -6,6 +6,18 @@ $(document).ready(function () {
 
 var global_oid;
 
+var today = new Date();
+
+var dday = today.getDate();
+dday = dday>9?dday:"0"+dday;
+var dmonth = today.getMonth();
+dmonth = dmonth>9?dmonth:"0"+dmonth;
+var dyear = today.getYear()+1900;
+
+var stoday = dyear+"-"+dmonth+"-"+dday;
+
+
+
 function isArray(a) { return isObject(a) && a.constructor == Array }                              // Valida si el objeto es una instancia de Array
 function isBoolean(a) { return typeof a == 'boolean' }                                            // Valida si el objeto es de tipo boolean
 function isNull(a) { return typeof a == 'object' && !a }                                          // Valida si el objeto es nulo

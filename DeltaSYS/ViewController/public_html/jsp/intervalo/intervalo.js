@@ -1,14 +1,3 @@
-var today = new Date();
-
-var dday = today.getDate();
-dday = dday>9?dday:"0"+dday;
-
-var dmonth = today.getMonth();
-dmonth = dmonth>9?dmonth:"0"+dmonth;
-
-var dyear = today.getYear()+1900;
-
-var stoday = dyear+"-"+dmonth+"-"+dday;
 
 function jsLoaded()
 {

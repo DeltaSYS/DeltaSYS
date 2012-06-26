@@ -88,7 +88,7 @@ public class DsCancelacionesController extends HttpServlet
             if(action.equals("select"))
             {     
                 
-                Long id_folio = jsonObject.getLong("int_folio");
+                Long id_folio = jsonObject.getLong("id_folio");
                 List<DsCancelaciones> dscancelaciones = facade.getDsCancelacionesFindFolioCancelado(id_folio);
                 
                 JSONObject obj = new JSONObject();
