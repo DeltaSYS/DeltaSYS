@@ -286,7 +286,7 @@ public class JavaServiceFacade {
     }
 
     public void removeDsUbicaciones(DsUbicaciones dsUbicaciones) {
-        dsUbicaciones = entityManagerHelper.getEntityManager().find(DsUbicaciones.class, new DsUbicacionesPK( dsUbicaciones.getFecha_hora(), dsUbicaciones.getOid()));
+        dsUbicaciones = entityManagerHelper.getEntityManager().find(DsUbicaciones.class, dsUbicaciones.getOid());
         entityManagerHelper.removeEntity(dsUbicaciones);
     }
 

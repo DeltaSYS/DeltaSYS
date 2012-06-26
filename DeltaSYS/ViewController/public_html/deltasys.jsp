@@ -17,6 +17,9 @@
     <script language="javascript" src="js/funciones.js"></script>
     <script language="javascript" src="js/deltasys.js"></script>
     
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <script language="javascript" src="js/gmaps.js"></script>
+    
       <%
       if(consulta.equals("si")){
       %>
