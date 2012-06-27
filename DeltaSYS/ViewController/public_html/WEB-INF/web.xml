@@ -58,6 +58,14 @@
     <servlet-name>DsCancelacionesController</servlet-name>
     <servlet-class>controllers.DsCancelacionesController</servlet-class>
   </servlet>
+  <servlet>
+    <servlet-name>DsGeoCoding</servlet-name>
+    <servlet-class>webservices.DsGeoCoding</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>SetraviService</servlet-name>
+    <servlet-class>webservices.SetraviService</servlet-class>
+  </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>/faces/*</url-pattern>
@@ -97,5 +105,13 @@
   <servlet-mapping>
     <servlet-name>DsCancelacionesController</servlet-name>
     <url-pattern>/DsCancelacionesController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>DsGeoCoding</servlet-name>
+    <url-pattern>/DsGeoCoding</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>SetraviService</servlet-name>
+    <url-pattern>/SetraviService</url-pattern>
   </servlet-mapping>
 </web-app>

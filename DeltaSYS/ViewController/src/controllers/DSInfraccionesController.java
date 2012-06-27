@@ -1,16 +1,22 @@
 package controllers;
 
 import deltasys.model.DsInfracciones;
-import deltasys.model.DsIntervalo;
 import deltasys.model.DsReglamento;
-import deltasys.model.DsUsuarios;
 import deltasys.model.JavaServiceFacade;
 
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 
 import java.math.BigDecimal;
+
+import java.net.URL;
+import java.net.URLConnection;
 
 import java.sql.Timestamp;
 
@@ -23,6 +29,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
+import webservices.Base64;
 
 public class DSInfraccionesController extends HttpServlet
 {
@@ -81,9 +89,19 @@ public class DSInfraccionesController extends HttpServlet
                 BigDecimal latitud = new BigDecimal(jsonObject.getString("latitud"));                 
                 BigDecimal longitud = new BigDecimal(jsonObject.getString("longitud")); 
                 String descripcion = jsonObject.getString("descripcion");
+                
                 String nom_infractor= jsonObject.getString("nom_infractor");
                 String domicilio = jsonObject.getString("domicilio");
                 String licencia = jsonObject.getString("licencia");
+                
+        
+                String sfoto_frontal = jsonObject.getString("foto_frontal");
+                String sfoto_lateral = jsonObject.getString("foto_lateral");
+                String sfoto_trasera = jsonObject.getString("foto_trasera");
+                
+                savePhoto(sfoto_frontal,"frontal",id_folio);                
+                savePhoto(sfoto_lateral,"lateral",id_folio);                
+                savePhoto(sfoto_trasera,"trasera",id_folio);
                 
                 int id_articulo = jsonObject.getInt("id_articulo");
                 String id_fraccion = jsonObject.getString("id_fraccion");
@@ -93,7 +111,25 @@ public class DSInfraccionesController extends HttpServlet
                 BigDecimal monto = new BigDecimal(jsonObject.getString("monto"));   
                 
                 dsinfracciones = new DsInfracciones(descripcion, domicilio, fecha_hora, id_folio, dsReglamento, id_oid, latitud, licencia, longitud, monto, nom_infractor, num_placa);
-
+        
+                // SETRAVI -------------------
+                
+                JSONObject jsonSetravi = getDatosSetravi(num_placa);
+                
+                if(jsonSetravi!=null)
+                {
+                    if(nom_infractor.length()==0)
+                        dsinfracciones.setNom_infractor(jsonSetravi.getString("nombre"));
+                    if(domicilio.length()==0)
+                        dsinfracciones.setDomicilio(jsonSetravi.getString("direccion"));
+                    if(licencia.length()==0)
+                        dsinfracciones.setLicencia(jsonSetravi.getString("licencia"));
+                }
+                    
+                notificaSetravi(dsinfracciones,fecha);  
+                
+                // ---------------------------
+                
                 facade.persistDsInfracciones(dsinfracciones);
                 
                 JSONObject json = new JSONObject();        
@@ -169,5 +205,100 @@ public class DSInfraccionesController extends HttpServlet
       protected void doPost(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
           doGet(req,res);
         }
+      
+    void savePhoto(String sfoto, String cve_foto, int id_folio)
+    {   
+        
+        try
+        {
+
+            byte[] bfoto =  Base64.decode(sfoto);
+            
+            String sfile = String.valueOf(id_folio)+"_"+cve_foto+".jpg"; // idfolio_cveFoto.jpg
+            File file = new File(sfile);
+        
+            FileOutputStream fstream = new FileOutputStream(file);
+            DataOutputStream out = new DataOutputStream(new BufferedOutputStream(fstream));
+            
+            out.write(bfoto);
+            
+            out.close();
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error: " + e.getMessage());
+        }
+        finally
+        {
+            System.out.println("¡Foto guardada!");      
+        }
+    }
+    
+    void notificaSetravi(DsInfracciones dsinfracciones, String fecha)
+    {
+        try
+        {
+            String datos = "";
+            JSONObject jsonObject = new JSONObject();
+            
+            jsonObject.put("action", "insert");
+            jsonObject.put("licencia", dsinfracciones.getLicencia() );
+            jsonObject.put("motivo", dsinfracciones.getDescripcion() );
+            jsonObject.put("fecha_hora", fecha );
+
+            URL setraviController = new URL("http://localhost:7101/DeltaSYS/SetraviService?data="+jsonObject.toString());
+            URLConnection setraviconnetion = setraviController.openConnection();
+            
+            BufferedReader in = new BufferedReader(
+                                   new InputStreamReader(
+                                   setraviconnetion.getInputStream(),"UTF-8"));
+            
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) 
+                datos += inputLine;
+            in.close();
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error: " + e.getMessage());
+        }
+    }
+    
+    JSONObject getDatosSetravi(String num_placa)
+    {
+        JSONObject jsonDatosSetravi = new JSONObject();
+        
+        try
+        {
+            String datos = "";
+            JSONObject jsonObject = new JSONObject();
+
+            jsonObject.put("action", "select");
+            jsonObject.put("num_placa", num_placa );
+
+            URL setraviController = new URL("http://localhost:7101/DeltaSYS/SetraviService?data="+jsonObject.toString());
+            URLConnection setraviconnetion = setraviController.openConnection();
+            
+            BufferedReader in = new BufferedReader(
+                                   new InputStreamReader(
+                                   setraviconnetion.getInputStream(),"UTF-8"));
+            
+            String inputLine;
+            while ((inputLine = in.readLine()) != null) 
+                datos += inputLine;
+            in.close();
+            
+            jsonDatosSetravi = JSONObject.fromObject(datos);
+             
+        }
+        catch (Exception e)
+        {
+            System.out.println("Error: " + e.getMessage());
+        }
+        finally
+        {
+            return jsonDatosSetravi;    
+        }
+    }
     
 }

@@ -25,6 +25,8 @@
     <class>deltasys.model.DsSectores</class>
     <class>deltasys.model.DsUbicaciones</class>
     <class>deltasys.model.DsUsuarios</class>
+    <class>setravi.model.SetraviDatos</class>
+    <class>setravi.model.SetraviPuntos</class>
     <properties>
       <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/deltasys"/>
