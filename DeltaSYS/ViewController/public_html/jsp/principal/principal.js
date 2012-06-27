@@ -36,12 +36,12 @@ function autenticarRes(obj,result)
     {
         var loggedon = obj[0].loggedon;
     
-        if(loggedon=="yes")
+        if(loggedon=="yes"&&(obj[0].id_perfil=="1"||obj[0].id_perfil=="2"))
         {
-        
-            alert("Bienvenid@ "+obj[0].user);
             
             var rol = obj[0].id_perfil;
+            alert("Bienvenid@ "+obj[0].user);
+            
             var urlDeRol="supervisor.jsp";
             global_oid = obj[0].oid;
             

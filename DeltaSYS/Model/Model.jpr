@@ -55,6 +55,7 @@
    <value n="defaultPackage" v="deltasys.model"/>
    <hash n="ejbModuleContainer">
       <value n="cmpProvider" v="EJB 3.0"/>
+      <value n="dbConnection" v="DeltaSYS"/>
       <value n="ejbMetaDataPrefs" v="PREFASANNON"/>
       <value n="ejbVersion" v="3.0"/>
       <list n="serviceFacadeUrls">

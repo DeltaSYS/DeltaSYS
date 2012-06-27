@@ -15,11 +15,11 @@
               </tr>
               <tr>
                 <td>Usuario<td>
-                <td><input type="text" id="user" name="oid" value="si0001" required/><td>
+                <td><input type="text" id="user" name="oid" value="" required/><td>
               </tr>
               <tr>
                 <td>Contrase&ntilde;a<td>
-                <td><input type="password" id="password" required name="password" value="si01"/><td>
+                <td><input type="password" id="password" required name="password" value=""/><td>
               </tr>
               <tr>
                 <td align="center" ><input type="submit" id="btnSubmit" value="Enviar"/>

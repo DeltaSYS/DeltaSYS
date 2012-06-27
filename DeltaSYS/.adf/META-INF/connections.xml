@@ -9,18 +9,18 @@
          <StringRefAddr addrType="user">
             <Contents>root</Contents>
          </StringRefAddr>
-         <StringRefAddr addrType="hostname">
-            <Contents>192.168.1.65</Contents>
-         </StringRefAddr>
          <StringRefAddr addrType="port">
             <Contents>3306</Contents>
          </StringRefAddr>
-         <SecureRefAddr addrType="password"/>
-         <StringRefAddr addrType="dataSourceName">
-            <Contents>deltasys</Contents>
+         <StringRefAddr addrType="hostname">
+            <Contents>localhost</Contents>
          </StringRefAddr>
+         <SecureRefAddr addrType="password"/>
          <StringRefAddr addrType="driver">
             <Contents>com.mysql.jdbc.Driver</Contents>
+         </StringRefAddr>
+         <StringRefAddr addrType="dataSourceName">
+            <Contents>deltasys</Contents>
          </StringRefAddr>
       </RefAddresses>
    </Reference>
